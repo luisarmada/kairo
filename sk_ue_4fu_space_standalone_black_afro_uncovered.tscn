@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=3 uid="uid://nhfln4f1766c"]
+
+[ext_resource type="PackedScene" uid="uid://c2gsskfwuwi2f" path="res://SK_UE4FU_Space_Standalone_Black_Afro_Uncovered.fbx" id="1_a6btf"]
+[ext_resource type="Texture2D" uid="uid://pxvxsktdqf2y" path="res://art/models/characters/space_rogue/T_Unlit_Space_Gear_Full_16_Hot_Orange.png" id="2_f38vs"]
+[ext_resource type="Texture2D" uid="uid://c0oqe8rlsq63" path="res://art/models/characters/space_rogue/T_Unlit_Space_Skin_Black.png" id="3_cyra7"]
+[ext_resource type="Texture2D" uid="uid://quvvhynfc4s6" path="res://art/models/characters/space_rogue/T_Unlit_Space_Hair.png" id="4_071vs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f38vs"]
+albedo_texture = ExtResource("2_f38vs")
+albedo_texture_force_srgb = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_071vs"]
+albedo_texture = ExtResource("3_cyra7")
+albedo_texture_force_srgb = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7oxn"]
+albedo_texture = ExtResource("4_071vs")
+albedo_texture_force_srgb = true
+
+[node name="SK_UE4FU_Space_Standalone_Black_Afro_Uncovered" instance=ExtResource("1_a6btf")]
+
+[node name="SK_UE4FU_Space_Standalone_Black_Afro_Uncovered2" parent="SK_UE4FU_Space_Standalone_Black_Afro_Uncovered/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_f38vs")
+surface_material_override/1 = SubResource("StandardMaterial3D_071vs")
+surface_material_override/2 = SubResource("StandardMaterial3D_u7oxn")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=10 format=3 uid="uid://buowb3w1c1wuu"]
+
+[ext_resource type="PackedScene" uid="uid://sdnb6c16onie" path="res://art/models/characters/z_mech/ZMech_v2.fbx" id="1_qvrgb"]
+[ext_resource type="Texture2D" uid="uid://cchcqks4hftg8" path="res://art/models/characters/z_mech/materials/ColorVariations_Silver/ZMech_Silver_Legs_BaseColor.PNG" id="2_4rhml"]
+[ext_resource type="Texture2D" uid="uid://7htiob4xbv6k" path="res://art/models/characters/z_mech/materials/ColorVariations_Silver/ZMech_Silver_Torso2_BaseColor.PNG" id="3_dqlgc"]
+[ext_resource type="Texture2D" uid="uid://dlwag0egvb37l" path="res://art/models/characters/z_mech/materials/ColorVariations_Silver/ZMech_Silver_Arms_BaseColor.PNG" id="4_g2t8v"]
+[ext_resource type="Texture2D" uid="uid://byu3or20sfkga" path="res://art/models/characters/z_mech/materials/ColorVariations_Silver/ZMech_Silver_HeadChest_BaseColor.PNG" id="5_2iwq4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqlgc"]
+albedo_texture = ExtResource("2_4rhml")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ac6cl"]
+albedo_texture = ExtResource("3_dqlgc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfvp8"]
+albedo_texture = ExtResource("4_g2t8v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6vm7"]
+albedo_texture = ExtResource("5_2iwq4")
+
+[node name="ZMech_v2" instance=ExtResource("1_qvrgb")]
+
+[node name="ZMech_v22" parent="ZMech_v2/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dqlgc")
+surface_material_override/1 = SubResource("StandardMaterial3D_ac6cl")
+surface_material_override/2 = SubResource("StandardMaterial3D_cfvp8")
+surface_material_override/3 = SubResource("StandardMaterial3D_r6vm7")

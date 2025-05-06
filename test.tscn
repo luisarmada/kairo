@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://3825cccgrt7g"]
+
+[ext_resource type="Script" uid="uid://7fm2itvx0idj" path="res://Camera.gd" id="1_aorrx"]
+[ext_resource type="Shader" uid="uid://clv2rr31lf0bl" path="res://sable.gdshader" id="2_u36ka"]
+[ext_resource type="PackedScene" uid="uid://nhfln4f1766c" path="res://sk_ue_4fu_space_standalone_black_afro_uncovered.tscn" id="3_6uqi0"]
+[ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://z_mech_v_2.tscn" id="4_ppyta"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks12u"]
+albedo_color = Color(0.749878, 0.992538, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3cqob"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ii8p"]
+albedo_color = Color(0.463434, 0.623964, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ub57u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnxdw"]
+albedo_color = Color(0.373972, 0.755648, 0.960938, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6cfdx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd1ih"]
+albedo_color = Color(0.427782, 0.216588, 0.738281, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pfex3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udt7l"]
+render_priority = 0
+shader = ExtResource("2_u36ka")
+shader_parameter/threshold1 = 0.56
+shader_parameter/night_time = 0.0
+shader_parameter/shadow_value_threshold = 0.3
+shader_parameter/dark_value_threshold = 0.17
+shader_parameter/dark_brightness_scale = 60.0
+shader_parameter/normal_threshold = 1.0
+shader_parameter/depth_threshold = 10.0
+shader_parameter/depth_artifact_correction_coef = 2.0
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_e38j0"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="Environment" id="Environment_m5qaq"]
+background_mode = 1
+background_color = Color(0.174298, 0.390988, 0.753906, 1)
+reflected_light_source = 1
+glow_bloom = 0.18
+glow_blend_mode = 1
+
+[node name="Test" type="Node3D"]
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(112.97, 0, 0, 0, -4.37114e-06, 4.6, 0, -100, -2.01072e-07, 0, -1.93337, -0.781762)
+material_override = SubResource("StandardMaterial3D_ks12u")
+mesh = SubResource("QuadMesh_3cqob")
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.593, 0, 0, 0, 1.17494, 0, 0, 0, 1.53199, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_1ii8p")
+mesh = SubResource("CylinderMesh_ub57u")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, -4.00111, -0.126917, 0)
+material_override = SubResource("StandardMaterial3D_gnxdw")
+mesh = SubResource("SphereMesh_6cfdx")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.72867, -1.00583, 4.39662e-08, 0, -8.74228e-08, -2, 1.00583, 1.72867, -7.55627e-08, 3.60105, 1.36415, 0.197804)
+material_override = SubResource("StandardMaterial3D_sd1ih")
+mesh = SubResource("BoxMesh_pfex3")
+
+[node name="CameraNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0.451806, 1.64743)
+script = ExtResource("1_aorrx")
+zoom_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraNode"]
+transform = Transform3D(1, 0, 0, 0, 0.891939, 0.452154, 0, -0.452154, 0.891939, 0, 3.52008, 4.95668)
+
+[node name="QuadPlane" type="MeshInstance3D" parent="CameraNode/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.89194, -0.452155, 0, 0.452155, 0.89194, 0.0454259, -0.92755, -6.07672)
+material_override = SubResource("ShaderMaterial_udt7l")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_e38j0")
+skeleton = NodePath("../../..")
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m5qaq")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.997408, -0.038847, 0.0605616, -0.0189518, 0.670148, 0.741986, -0.0694092, -0.741211, 0.667674, 0, 2.11829, 6.80211)
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+
+[node name="SK_UE4FU_Space_Standalone_Black_Afro_Uncovered" parent="." instance=ExtResource("3_6uqi0")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 6.25399, -1.8351, 3.95345)
+
+[node name="ZMech_v3" parent="." instance=ExtResource("4_ppyta")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -22.7925, -2.17827, -10.5013)
