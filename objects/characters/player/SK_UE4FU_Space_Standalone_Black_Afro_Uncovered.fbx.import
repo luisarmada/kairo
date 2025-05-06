@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c2gsskfwuwi2f"
-path="res://.godot/imported/SK_UE4FU_Space_Standalone_Black_Afro_Uncovered.fbx-53f7f51b260a580fe1da7c09af2e649c.scn"
+path="res://.godot/imported/SK_UE4FU_Space_Standalone_Black_Afro_Uncovered.fbx-a4fc9375693351baf869b9c8b3a760fc.scn"
 
 [deps]
 
-source_file="res://SK_UE4FU_Space_Standalone_Black_Afro_Uncovered.fbx"
-dest_files=["res://.godot/imported/SK_UE4FU_Space_Standalone_Black_Afro_Uncovered.fbx-53f7f51b260a580fe1da7c09af2e649c.scn"]
+source_file="res://objects/characters/player/SK_UE4FU_Space_Standalone_Black_Afro_Uncovered.fbx"
+dest_files=["res://.godot/imported/SK_UE4FU_Space_Standalone_Black_Afro_Uncovered.fbx-a4fc9375693351baf869b9c8b3a760fc.scn"]
 
 [params]
 
