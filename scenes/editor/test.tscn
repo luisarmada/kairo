@@ -1,13 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://3825cccgrt7g"]
+[gd_scene load_steps=19 format=3 uid="uid://3825cccgrt7g"]
 
-[ext_resource type="Script" uid="uid://7fm2itvx0idj" path="res://objects/util/camera/Camera.gd" id="1_3r13j"]
 [ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/z_mech/z_mech_v_2.tscn" id="4_4l0s3"]
 [ext_resource type="PackedScene" uid="uid://cmulvmoc07eel" path="res://art/models/environment/cyberpunk_buildings/Cyberpunk_City.fbx" id="5_s06tt"]
 [ext_resource type="ArrayMesh" uid="uid://c6h1amj5p6bnw" path="res://art/models/environment/cyberpunk_buildings/Motel_Building.res" id="6_4l0s3"]
 [ext_resource type="ArrayMesh" uid="uid://bf17c6ry8gbih" path="res://art/models/environment/cyberpunk_buildings/TallNeon_Building.res" id="7_4l0s3"]
 [ext_resource type="ArrayMesh" uid="uid://ciaxnbwjtu0rb" path="res://art/models/environment/cyberpunk_buildings/UglyCar_Car.res" id="8_uyhpa"]
 [ext_resource type="ArrayMesh" uid="uid://enxk71o8xumq" path="res://art/models/environment/cyberpunk_buildings/Transmission_Tower.res" id="9_gkd1c"]
+[ext_resource type="Shader" uid="uid://dx4pcaue3d7yi" path="res://objects/particles/Shaders/ToonFire.gdshader" id="10_6obu8"]
 [ext_resource type="ArrayMesh" uid="uid://d1eqkk112i1ph" path="res://art/models/environment/cyberpunk_buildings/HugeCrane.res" id="10_b2hld"]
+[ext_resource type="PackedScene" uid="uid://crb7b2ap5nl0i" path="res://objects/particles/Scenes/3d_fire.tscn" id="11_6obu8"]
 [ext_resource type="PackedScene" uid="uid://cjb0ih2pl00iw" path="res://objects/characters/player/PlayerPrefab.tscn" id="11_j3c5n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ii8p"]
@@ -32,6 +33,20 @@ reflected_light_source = 1
 glow_bloom = 0.18
 glow_blend_mode = 1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2hld"]
+render_priority = 0
+shader = ExtResource("10_6obu8")
+shader_parameter/top_radius = 0.683
+shader_parameter/bottom_radius = 1.5
+shader_parameter/center_radius = 2.885
+shader_parameter/center_position = 0.256
+shader_parameter/cylinder_height = 9.624
+shader_parameter/bottom_curve = 0.6
+shader_parameter/_vibrate_amplitude = 0.04
+shader_parameter/_vibrate_frequency = 150.0
+shader_parameter/_speed = 2.0
+shader_parameter/_scale = 3.0
+
 [node name="Test" type="Node3D"]
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
@@ -48,11 +63,6 @@ mesh = SubResource("SphereMesh_6cfdx")
 transform = Transform3D(1.72867, -1.00583, 4.39662e-08, 0, -8.74228e-08, -2, 1.00583, 1.72867, -7.55627e-08, 3.60105, 1.36415, 0.197804)
 material_override = SubResource("StandardMaterial3D_sd1ih")
 mesh = SubResource("BoxMesh_pfex3")
-
-[node name="CameraNode" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0.451806, 1.64743)
-script = ExtResource("1_3r13j")
-zoom_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5qaq")
@@ -96,3 +106,7 @@ size = Vector3(200, 1, 200)
 
 [node name="PlayerPrefab" parent="." instance=ExtResource("11_j3c5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2258, -1.96604, 11.0728)
+
+[node name="3DFire2" parent="." instance=ExtResource("11_6obu8")]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -19.038, -2.00533, -1.75901)
+material_override = SubResource("ShaderMaterial_b2hld")

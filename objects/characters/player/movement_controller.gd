@@ -14,7 +14,10 @@ func _physics_process(delta: float) -> void:
 	velocity.x = speed * direction.normalized().x
 	velocity.z = speed * direction.normalized().z
 	
-	character.velocity = character.velocity.lerp(velocity, acceleration * delta)
+	if acceleration < 100.0:
+		character.velocity = character.velocity.lerp(velocity, acceleration * delta)
+	else:
+		character.velocity = velocity
 	character.move_and_slide()
 	
 	var target_rotation = atan2(direction.x, direction.z) - character.rotation.y

@@ -6,8 +6,9 @@
 script = ExtResource("1_mbdqu")
 state_name = "sprint"
 id = 3
-movement_speed = 26.0
-acceleration = 2.0
+movement_speed = 24.0
+acceleration = 100.0
 camera_fov = 100.0
-animation_speed = 1.45
+animation_speed = 1.3
+frames_per_second = 24
 metadata/_custom_type_script = "uid://bpkj04x1c7guy"
