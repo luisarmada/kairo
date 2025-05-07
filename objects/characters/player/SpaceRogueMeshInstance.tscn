@@ -92,7 +92,7 @@ bones/66/position = Vector3(0.137814, 0.16852, 0.414253)
 bones/66/rotation = Quaternion(0.290232, 0.238103, 0.926723, 0.0160095)
 
 [node name="LeftHandKatana" type="BoneAttachment3D" parent="Mesh/GeneralSkeleton" index="0"]
-transform = Transform3D(0.192988, 0.338604, 0.920925, -0.91456, -0.277919, 0.293839, 0.355437, -0.898948, 0.256038, 0.195464, 0.904402, 0.12691)
+transform = Transform3D(0.192988, 0.338603, 0.920925, -0.914559, -0.277919, 0.293839, 0.355438, -0.898948, 0.256038, 0.195464, 0.904402, 0.12691)
 bone_name = "ik_hand_l"
 bone_idx = 66
 
@@ -103,7 +103,7 @@ transform = Transform3D(0.78546, -1.15889, -0.00586694, -0.0779506, -0.0457606, 
 material_override = SubResource("StandardMaterial3D_8uv2x")
 
 [node name="RightHandKatana" type="BoneAttachment3D" parent="Mesh/GeneralSkeleton" index="2"]
-transform = Transform3D(0.378788, 0.130219, 0.916276, 0.890156, 0.219669, -0.399209, -0.253262, 0.966844, -0.0327077, -0.258253, 0.910081, 0.0124297)
+transform = Transform3D(0.378788, 0.130219, 0.916276, 0.890156, 0.21967, -0.399209, -0.253263, 0.966844, -0.0327072, -0.258253, 0.910081, 0.0124297)
 bone_name = "ik_hand_r"
 bone_idx = 67
 

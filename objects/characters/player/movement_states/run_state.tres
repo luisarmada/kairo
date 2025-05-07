@@ -6,7 +6,7 @@
 script = ExtResource("1_dlqry")
 state_name = "run"
 id = 2
-movement_speed = 8.0
+movement_speed = 13.0
 acceleration = 5.0
 camera_fov = 75.0
 animation_speed = 1.0
