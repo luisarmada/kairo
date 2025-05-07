@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://baxgyymvrvjbk"]
+
+[ext_resource type="PackedScene" uid="uid://xku8q83ti4rd" path="res://art/models/weapons/base_katana/SM_Katana01.fbx" id="1_nyod2"]
+
+[node name="SM_Katana01" instance=ExtResource("1_nyod2")]
