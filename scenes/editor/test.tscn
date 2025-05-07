@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://3825cccgrt7g"]
+[gd_scene load_steps=17 format=3 uid="uid://3825cccgrt7g"]
 
 [ext_resource type="Script" uid="uid://7fm2itvx0idj" path="res://objects/util/camera/Camera.gd" id="1_3r13j"]
-[ext_resource type="Shader" uid="uid://clv2rr31lf0bl" path="res://scripts/shaders/sable.gdshader" id="2_4bncf"]
 [ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/z_mech/z_mech_v_2.tscn" id="4_4l0s3"]
 [ext_resource type="PackedScene" uid="uid://cmulvmoc07eel" path="res://art/models/environment/cyberpunk_buildings/Cyberpunk_City.fbx" id="5_s06tt"]
 [ext_resource type="ArrayMesh" uid="uid://c6h1amj5p6bnw" path="res://art/models/environment/cyberpunk_buildings/Motel_Building.res" id="6_4l0s3"]
@@ -9,12 +8,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ciaxnbwjtu0rb" path="res://art/models/environment/cyberpunk_buildings/UglyCar_Car.res" id="8_uyhpa"]
 [ext_resource type="ArrayMesh" uid="uid://enxk71o8xumq" path="res://art/models/environment/cyberpunk_buildings/Transmission_Tower.res" id="9_gkd1c"]
 [ext_resource type="ArrayMesh" uid="uid://d1eqkk112i1ph" path="res://art/models/environment/cyberpunk_buildings/HugeCrane.res" id="10_b2hld"]
-[ext_resource type="PackedScene" uid="uid://beobv2epc1svd" path="res://objects/characters/player/PlayerPrefab.tscn" id="11_j3c5n"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ks12u"]
-albedo_color = Color(0.749878, 0.992538, 1, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_3cqob"]
+[ext_resource type="PackedScene" uid="uid://cjb0ih2pl00iw" path="res://objects/characters/player/PlayerPrefab.tscn" id="11_j3c5n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ii8p"]
 albedo_color = Color(0.463434, 0.623964, 1, 1)
@@ -31,23 +25,6 @@ albedo_color = Color(0.427782, 0.216588, 0.738281, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pfex3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_udt7l"]
-render_priority = 0
-shader = ExtResource("2_4bncf")
-shader_parameter/threshold1 = 0.56
-shader_parameter/night_time = 0.0
-shader_parameter/shadow_value_threshold = 0.3
-shader_parameter/dark_value_threshold = 0.17
-shader_parameter/dark_brightness_scale = 60.0
-shader_parameter/normal_threshold = 1.0
-shader_parameter/depth_threshold = 10.0
-shader_parameter/depth_artifact_correction_coef = 2.0
-shader_parameter/outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_e38j0"]
-flip_faces = true
-size = Vector2(2, 2)
-
 [sub_resource type="Environment" id="Environment_m5qaq"]
 background_mode = 1
 background_color = Color(0.174298, 0.390988, 0.753906, 1)
@@ -57,18 +34,13 @@ glow_blend_mode = 1
 
 [node name="Test" type="Node3D"]
 
-[node name="Plane" type="MeshInstance3D" parent="."]
-transform = Transform3D(564.85, 0, 0, 0, -2.18557e-05, 23, 0, -500, -1.00536e-06, 0, -1.93401, -0.636914)
-material_override = SubResource("StandardMaterial3D_ks12u")
-mesh = SubResource("QuadMesh_3cqob")
-
 [node name="Cylinder" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.593, 0, 0, 0, 1.17494, 0, 0, 0, 1.53199, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_1ii8p")
 mesh = SubResource("CylinderMesh_ub57u")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, -4.00111, -0.126917, 0)
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, -4.00109, 0.934748, -1.04904e-05)
 material_override = SubResource("StandardMaterial3D_gnxdw")
 mesh = SubResource("SphereMesh_6cfdx")
 
@@ -81,17 +53,6 @@ mesh = SubResource("BoxMesh_pfex3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0.451806, 1.64743)
 script = ExtResource("1_3r13j")
 zoom_enabled = true
-
-[node name="Camera3D" type="Camera3D" parent="CameraNode"]
-transform = Transform3D(1, 0, 0, 0, 0.891939, 0.452154, 0, -0.452154, 0.891939, 0, 3.52008, 4.95668)
-
-[node name="QuadPlane" type="MeshInstance3D" parent="CameraNode/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.89194, -0.452155, 0, 0.452155, 0.89194, 0.0454259, -0.92755, -6.07672)
-material_override = SubResource("ShaderMaterial_udt7l")
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_e38j0")
-skeleton = NodePath("../../..")
-metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m5qaq")
@@ -128,5 +89,10 @@ mesh = ExtResource("9_gkd1c")
 transform = Transform3D(200, 0, 0, 0, 2.38498e-06, 200, 0, -200, 2.38498e-06, 24.9344, 59.5036, 1.27398)
 mesh = ExtResource("10_b2hld")
 
-[node name="SK_UE4FU_Space_Standalone_Helmet4" parent="." instance=ExtResource("11_j3c5n")]
-transform = Transform3D(3.1, 0, 0, 0, 3.1, 0, 0, 0, 3.1, 9.88073, -1.89403, 5.17577)
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.46604, 0)
+use_collision = true
+size = Vector3(200, 1, 200)
+
+[node name="PlayerPrefab" parent="." instance=ExtResource("11_j3c5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2258, -1.96604, 11.0728)

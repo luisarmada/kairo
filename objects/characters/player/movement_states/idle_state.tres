@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="MovementState" load_steps=2 format=3 uid="uid://ctdnbwc4meocc"]
+
+[ext_resource type="Script" uid="uid://bpkj04x1c7guy" path="res://objects/characters/scripts/movement_state.gd" id="1_as1y6"]
+
+[resource]
+script = ExtResource("1_as1y6")
+state_name = "idle"
+id = 0
+movement_speed = 0.0
+acceleration = 6.0
+camera_fov = 70.0
+animation_speed = 1.0
+metadata/_custom_type_script = "uid://bpkj04x1c7guy"
