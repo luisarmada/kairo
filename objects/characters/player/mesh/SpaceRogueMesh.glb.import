@@ -1,15 +1,15 @@
 [remap]
 
-importer="animation_library"
+importer="scene"
 importer_version=1
-type="AnimationLibrary"
-uid="uid://dvq3hivwwd2da"
-path="res://.godot/imported/GrapplingHookAnimset.glb-06abb8ba00b74e384b1d7466d3764f8d.res"
+type="PackedScene"
+uid="uid://d3s4t1lxpw1k0"
+path="res://.godot/imported/SpaceRogueMesh.glb-648e0d9319ecf17e27cdb3b0ce3f6387.scn"
 
 [deps]
 
-source_file="res://objects/characters/player/animations/GrapplingHookAnimset.glb"
-dest_files=["res://.godot/imported/GrapplingHookAnimset.glb-06abb8ba00b74e384b1d7466d3764f8d.res"]
+source_file="res://objects/characters/player/mesh/SpaceRogueMesh.glb"
+dest_files=["res://.godot/imported/SpaceRogueMesh.glb-648e0d9319ecf17e27cdb3b0ce3f6387.scn"]
 
 [params]
 

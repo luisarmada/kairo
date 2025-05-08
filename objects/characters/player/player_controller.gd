@@ -2,8 +2,10 @@ extends CharacterBody3D
 
 signal set_movement_direction(_movement_dir: Vector3)
 signal set_movement_state(_movement_state: MovementState)
+signal jump(jump_state: JumpState)
 
 @export var movement_states : Dictionary
+@export var jump_state : Resource
 
 var movement_direction : Vector3
 
@@ -19,13 +21,19 @@ func _input(event: InputEvent) -> void:
 		movement_direction.x = Input.get_action_raw_strength("move_left") - Input.get_action_raw_strength("move_right")
 		movement_direction.z = Input.get_action_raw_strength("move_forward") - Input.get_action_raw_strength("move_backward")
 		
+		if event.is_action_pressed("jump"):
+			jump.emit(jump_state)
+		
 		if is_movement_ongoing():
-			if Input.is_action_pressed("sprint"):
+			if Input.is_action_pressed("walk"):
+				set_movement_state.emit(movement_states["walk"])
+			elif Input.is_action_pressed("sprint"):
 				set_movement_state.emit(movement_states["sprint"])
 			else:
 				set_movement_state.emit(movement_states["run"])
 		else:
 			set_movement_state.emit(movement_states["idle"])
+			
 		
 
 func is_movement_ongoing() -> bool:

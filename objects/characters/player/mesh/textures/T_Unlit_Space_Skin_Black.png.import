@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2xi36s7w1vgy"
-path.s3tc="res://.godot/imported/T_Unlit_Space_Gear_Full_17_Hot_Fushia.png-6a8b3cbae95559b0fa14880fe5a9bd43.s3tc.ctex"
+uid="uid://c0oqe8rlsq63"
+path.s3tc="res://.godot/imported/T_Unlit_Space_Skin_Black.png-489e74f93724d7fdaf94aaa38a5c356d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/models/characters/space_rogue/textures/T_Unlit_Space_Gear_Full_17_Hot_Fushia.png"
-dest_files=["res://.godot/imported/T_Unlit_Space_Gear_Full_17_Hot_Fushia.png-6a8b3cbae95559b0fa14880fe5a9bd43.s3tc.ctex"]
+source_file="res://objects/characters/player/mesh/textures/T_Unlit_Space_Skin_Black.png"
+dest_files=["res://.godot/imported/T_Unlit_Space_Skin_Black.png-489e74f93724d7fdaf94aaa38a5c356d.s3tc.ctex"]
 
 [params]
 

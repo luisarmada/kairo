@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dajod5ai4x0dp"
-path="res://.godot/imported/T_Unlit_Space_Gear_07_Full_Blu.png-606092d802957d3e072f840ae1bbe587.ctex"
+uid="uid://dpiupihqu18ad"
+path="res://.godot/imported/textures.png-520a61b9f0a5aa344df0158d7fd17f95.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/models/characters/space_rogue/textures/T_Unlit_Space_Gear_07_Full_Blu.png"
-dest_files=["res://.godot/imported/T_Unlit_Space_Gear_07_Full_Blu.png-606092d802957d3e072f840ae1bbe587.ctex"]
+source_file="res://objects/characters/player/mesh/textures/textures.png"
+dest_files=["res://.godot/imported/textures.png-520a61b9f0a5aa344df0158d7fd17f95.ctex"]
 
 [params]
 

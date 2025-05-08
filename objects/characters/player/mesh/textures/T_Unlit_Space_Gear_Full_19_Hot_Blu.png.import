@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0oqe8rlsq63"
-path.s3tc="res://.godot/imported/T_Unlit_Space_Skin_Black.png-ec6b448f1e6d779e3d5b07df63b93f71.s3tc.ctex"
+uid="uid://dguc40sy56f6y"
+path.s3tc="res://.godot/imported/T_Unlit_Space_Gear_Full_19_Hot_Blu.png-c46e9fc0693fd9d3edcba806887c15ac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/models/characters/space_rogue/textures/T_Unlit_Space_Skin_Black.png"
-dest_files=["res://.godot/imported/T_Unlit_Space_Skin_Black.png-ec6b448f1e6d779e3d5b07df63b93f71.s3tc.ctex"]
+source_file="res://objects/characters/player/mesh/textures/T_Unlit_Space_Gear_Full_19_Hot_Blu.png"
+dest_files=["res://.godot/imported/T_Unlit_Space_Gear_Full_19_Hot_Blu.png-c46e9fc0693fd9d3edcba806887c15ac.s3tc.ctex"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://baj17gaf74inf"
-path="res://.godot/imported/TwinKatanaAnimset.glb-157bed65c07959a5a8162304fa8fc10d.res"
+path="res://.godot/imported/TwinKatanaAnimset.glb-083c92907c4172ef35ceb01501ecc7c5.res"
 
 [deps]
 
-source_file="res://objects/characters/player/animations/TwinKatanaAnimset.glb"
-dest_files=["res://.godot/imported/TwinKatanaAnimset.glb-157bed65c07959a5a8162304fa8fc10d.res"]
+source_file="res://objects/characters/humanoid_animations/TwinKatanaAnimset.glb"
+dest_files=["res://.godot/imported/TwinKatanaAnimset.glb-083c92907c4172ef35ceb01501ecc7c5.res"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://quvvhynfc4s6"
-path.s3tc="res://.godot/imported/T_Unlit_Space_Hair.png-d5d0ef3e0338faf95f0ead8fc39ea8dd.s3tc.ctex"
+uid="uid://cxuxlfqfmq8y7"
+path.s3tc="res://.godot/imported/T_Unlit_Space_Gear_02_Purple_Orange.png-61d29a53a3ed8555b29180d07e5bd546.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/models/characters/space_rogue/textures/T_Unlit_Space_Hair.png"
-dest_files=["res://.godot/imported/T_Unlit_Space_Hair.png-d5d0ef3e0338faf95f0ead8fc39ea8dd.s3tc.ctex"]
+source_file="res://objects/characters/player/mesh/textures/T_Unlit_Space_Gear_02_Purple_Orange.png"
+dest_files=["res://.godot/imported/T_Unlit_Space_Gear_02_Purple_Orange.png-61d29a53a3ed8555b29180d07e5bd546.s3tc.ctex"]
 
 [params]
 

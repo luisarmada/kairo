@@ -73,18 +73,18 @@ light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 
 [node name="ZMech_v3" parent="." instance=ExtResource("4_4l0s3")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -22.7821, -2.34274, -26.2506)
+transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -22.7821, -2.34274, -26.2506)
 
 [node name="Cyberpunk_City" parent="." instance=ExtResource("5_s06tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 27)
 visible = false
 
 [node name="MotelBuilding" type="MeshInstance3D" parent="."]
-transform = Transform3D(200, 0, 0, 0, -8.74228e-06, 200, 0, -200, -8.74228e-06, 35.6541, 32.1243, -24.5244)
+transform = Transform3D(220, 0, 0, 0, -9.61651e-06, 220, 0, -220, -9.61651e-06, 35.654, 35.616, -24.524)
 mesh = ExtResource("6_4l0s3")
 
 [node name="TallNeonBuilding" type="MeshInstance3D" parent="."]
-transform = Transform3D(200, 0, 0, 0, 2.38498e-06, 200, 0, -200, 2.38498e-06, 29.5175, 42.1682, 28.0454)
+transform = Transform3D(220, 0, 0, 0, -9.61651e-06, 220, 0, -220, -9.61651e-06, 29.517, 47.266, 28.095)
 mesh = ExtResource("7_4l0s3")
 
 [node name="UglyCarCar" type="MeshInstance3D" parent="."]
@@ -92,7 +92,7 @@ transform = Transform3D(200, 0, 0, 0, -0.865678, 199.998, 0, -199.998, -0.865678
 mesh = ExtResource("8_uyhpa")
 
 [node name="TransmissionTower" type="MeshInstance3D" parent="."]
-transform = Transform3D(200, 0, 0, 0, 2.38498e-06, 200, 0, -200, 2.38498e-06, -46.4374, 14.0881, -7.64243)
+transform = Transform3D(400, 0, 0, 0, -1.74846e-05, 400, 0, -400, -1.74846e-05, -62.9069, 30.2863, -7.64243)
 mesh = ExtResource("9_gkd1c")
 
 [node name="HugeCrane" type="MeshInstance3D" parent="."]

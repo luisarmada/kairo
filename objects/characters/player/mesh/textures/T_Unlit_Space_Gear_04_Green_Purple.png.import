@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y2a0nx03twej"
-path.s3tc="res://.godot/imported/T_Unlit_Space_Gear_Full_15_Full_Teal.png-00fae2432dfb80a3b6d72f5eefd5dd52.s3tc.ctex"
+uid="uid://dcfck01j8m6xl"
+path.s3tc="res://.godot/imported/T_Unlit_Space_Gear_04_Green_Purple.png-71968c7328a0f45081c61c7c1ba4bd16.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/models/characters/space_rogue/textures/T_Unlit_Space_Gear_Full_15_Full_Teal.png"
-dest_files=["res://.godot/imported/T_Unlit_Space_Gear_Full_15_Full_Teal.png-00fae2432dfb80a3b6d72f5eefd5dd52.s3tc.ctex"]
+source_file="res://objects/characters/player/mesh/textures/T_Unlit_Space_Gear_04_Green_Purple.png"
+dest_files=["res://.godot/imported/T_Unlit_Space_Gear_04_Green_Purple.png-71968c7328a0f45081c61c7c1ba4bd16.s3tc.ctex"]
 
 [params]
 
