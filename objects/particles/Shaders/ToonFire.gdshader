@@ -25,34 +25,34 @@ void vertex() {
 	float centerradius = center_radius;
 	float centerposition = center_position;
 	cylinderheight = cylinder_height;
-	
+
     vec3 v_pos = VERTEX;
-    float original_height = v_pos.y;  
+    float original_height = v_pos.y;
     float relative_height = (original_height + 1.0) / 2.0;
-	
+
 	float scaledHeight =  relative_height * cylinderheight;
 	v_pos.y = scaledHeight + sin(TIME * _vibrate_frequency) * _vibrate_amplitude;
-   
+
     float radius;
-    if (relative_height <= centerposition) {       
+    if (relative_height <= centerposition) {
         float t = relative_height / centerposition;
 		t = pow(t, bottom_curve);
         t = smoothstep(0.0, 1.0, t);
         radius = mix(bottom_radius, centerradius, t);
-    } else {        
+    } else {
         float t = (relative_height - centerposition) / (1.0 - centerposition);
         t = smoothstep(0.0, 1.0, t);
         radius = mix(centerradius, topradius, t);
     }
-    
-    float current_radius = length(vec2(v_pos.x, v_pos.z));    
+
+    float current_radius = length(vec2(v_pos.x, v_pos.z));
     if (current_radius > 0.0) {
         float scale_factor = radius / current_radius;
         v_pos.x *= scale_factor;
         v_pos.z *= scale_factor;
     }
-    
-    VERTEX = v_pos;	
+
+    VERTEX = v_pos;
 }
 
 vec3 mod2893(vec3 x) {
@@ -73,7 +73,7 @@ vec4 taylorInvSqrt(vec4 r)
 }
 
 float snoise(vec3 v)
-  { 
+  {
   const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;
   const vec4  D = vec4(0.0, 0.5, 1.0, 2.0);
 
@@ -96,10 +96,10 @@ float snoise(vec3 v)
   vec3 x3 = x0 - D.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y
 
 // Permutations
-  i = mod2893(i); 
-  vec4 p = permute( permute( permute( 
+  i = mod2893(i);
+  vec4 p = permute( permute( permute(
              i.z + vec4(0.0, i1.z, i2.z, 1.0 ))
-           + i.y + vec4(0.0, i1.y, i2.y, 1.0 )) 
+           + i.y + vec4(0.0, i1.y, i2.y, 1.0 ))
            + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));
 
 // Gradients: 7x7 points over a square, mapped onto an octahedron.
@@ -143,7 +143,7 @@ float snoise(vec3 v)
 // Mix final noise value
   vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
   m = m * m;
-  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1), 
+  return 42.0 * dot( m*m, vec4( dot(p0,x0), dot(p1,x1),
                                 dot(p2,x2), dot(p3,x3) ) );
   }
 
@@ -155,36 +155,36 @@ vec3 hsv2rgb(vec3 c){
 }
 
 float getNoise(vec2 uv, float t){
-    
+
     float TRAVEL_SPEED = _speed;
-    
+
     //octave 1
     float SCALE = _scale;
     float noise = snoise( vec3(uv.x*SCALE ,uv.y*SCALE * 4. + t*TRAVEL_SPEED , 0.));
-    
+
     //octave 2 - more detail
     SCALE = 6.0;
     noise += snoise( vec3(uv.x*SCALE + t*TRAVEL_SPEED,uv.y*SCALE , 0))* 0.2 ;
-    
-    //move noise into 0 - 1 range    
+
+    //move noise into 0 - 1 range
     noise = (noise/2. + 0.5);
-    
+
     return noise;
-    
+
 }
 
 float getDepth(float n, float cutoff, float steps){
- 
+
     //given a 0-1 value return a depth,
-    
+
     //remap remaining non-cutoff region to 0 - 1
-	float d = (n - cutoff) / (1. - cutoff); 
-        
+	float d = (n - cutoff) / (1. - cutoff);
+
     //step it
     d = floor(d*steps)/steps;
-    
+
     return d;
-    
+
 }
 
 float hash(vec2 p){
@@ -192,7 +192,7 @@ float hash(vec2 p){
 	p3 += dot(p3, p3.yzx + 33.33);
 	return fract((p3.x + p3.y) * p3.z);
 }
-	
+
 float luminance(vec3 color) {
 	const vec3 magic = vec3(0.2125, 0.7154, 0.0721);
 	return dot(magic, color);
@@ -204,25 +204,25 @@ void fragment() {
 
 	vec2 uv = UV;
     uv.x *= 5.0;
-    float t = TIME * 3.0;    
+    float t = TIME * 3.0;
     vec3 col = vec3(0.0);
-    
+
    	float noise = getNoise(uv, t);
-    
+
     //shape cutoff to get higher further up the screen
-    cutoff = 1.1 - uv.y * 2.5;    
-       
-    if (noise < cutoff){  
+    cutoff = 1.1 - uv.y * 2.5;
+
+    if (noise < cutoff){
         col = vec3(0.);
     }else{
 		//fire
-        float d = pow(getDepth(noise, cutoff, steps),0.7);        
+        float d = pow(getDepth(noise, cutoff, steps),0.7);
         vec3 hsv = vec3(d *0.17,0.8 - d/4., d + 0.8);
         col = hsv2rgb(hsv);
-	}  
-	
+	}
+
 	ALPHA = col.r;
-	
+
 	ALBEDO = vec3(col) * 1.5;
-	
+
 }
