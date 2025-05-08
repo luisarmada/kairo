@@ -1,14 +1,17 @@
 extends Node
 
+signal land()
+
 @export var character : CharacterBody3D
 @export var mesh_root : Node3D
 @export var rotation_speed : float = 8
-@export var fall_gravity : float = 45
+@export var fall_gravity : float = 55
 var direction : Vector3
 var velocity : Vector3
 var acceleration : float
 var speed : float
 var jump_gravity : float = fall_gravity
+var has_landed: bool = true
 
 var cam_rotation: float
 
@@ -18,6 +21,11 @@ func _physics_process(delta: float) -> void:
 	
 	if not character.is_on_floor():
 		velocity.y -= (jump_gravity if velocity.y >= 0 else fall_gravity) * delta
+		has_landed = false
+	else:
+		if not has_landed:
+			has_landed = true
+			land.emit()
 	
 	if acceleration < 100.0:
 		character.velocity = character.velocity.lerp(velocity, acceleration * delta)
@@ -29,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	mesh_root.rotation.y = lerp_angle(mesh_root.rotation.y, target_rotation, rotation_speed * delta)
 
 func _on_jump(jump_state: JumpState):
+	await get_tree().create_timer(0.24).timeout
 	velocity.y = 2 * jump_state.jump_height / jump_state.apex_duration
 	jump_gravity = velocity.y / jump_state.apex_duration
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://3825cccgrt7g"]
 
-[ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/z_mech/z_mech_v_2.tscn" id="4_4l0s3"]
+[ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/z_mech/PrideMech.tscn" id="4_4l0s3"]
 [ext_resource type="PackedScene" uid="uid://cmulvmoc07eel" path="res://art/models/environment/cyberpunk_buildings/Cyberpunk_City.fbx" id="5_s06tt"]
 [ext_resource type="ArrayMesh" uid="uid://c6h1amj5p6bnw" path="res://art/models/environment/cyberpunk_buildings/Motel_Building.res" id="6_4l0s3"]
 [ext_resource type="ArrayMesh" uid="uid://bf17c6ry8gbih" path="res://art/models/environment/cyberpunk_buildings/TallNeon_Building.res" id="7_4l0s3"]
@@ -75,6 +75,16 @@ shadow_enabled = true
 [node name="ZMech_v3" parent="." instance=ExtResource("4_4l0s3")]
 transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -22.7821, -2.34274, -26.2506)
 
+[node name="LookAtModifier3D" parent="ZMech_v3/ZMech_v2/GeneralSkeleton" index="1"]
+target_node = NodePath("../../../../PlayerPrefab")
+duration = 2.0
+use_angle_limitation = true
+symmetry_limitation = true
+primary_limit_angle = 1.5708
+primary_damp_threshold = 0.5
+secondary_limit_angle = 1.22173
+secondary_damp_threshold = 0.5
+
 [node name="Cyberpunk_City" parent="." instance=ExtResource("5_s06tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 27)
 visible = false
@@ -110,3 +120,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2258, -1.96604, 11.0728)
 [node name="3DFire2" parent="." instance=ExtResource("11_6obu8")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -19.038, -2.00533, -1.75901)
 material_override = SubResource("ShaderMaterial_b2hld")
+
+[editable path="ZMech_v3"]
