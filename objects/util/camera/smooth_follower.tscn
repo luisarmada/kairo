@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6yxpc10ixbcv"]
+
+[ext_resource type="Script" uid="uid://bg77k0peiooiw" path="res://objects/util/camera/smooth_follower.gd" id="1_6figh"]
+
+[node name="SmoothFollower" type="CSGSphere3D"]
+script = ExtResource("1_6figh")
+
+[node name="Follower" type="CSGSphere3D" parent="."]
+top_level = true

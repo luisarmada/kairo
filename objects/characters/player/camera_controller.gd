@@ -16,6 +16,7 @@ var yaw_acceleration : float = 15
 var pitch_acceleration : float = 15
 
 var pitch_max : float = 12
+var target_pitch_max : float = 12
 var pitch_min : float = -55
 
 var tween
@@ -30,6 +31,8 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	pitch = clampf(pitch, pitch_min, pitch_max)
+	pitch_max = lerp(pitch_max, target_pitch_max, 6.0 * delta)
+	
 	
 	yaw_node.rotation_degrees.y = lerp(yaw_node.rotation_degrees.y, yaw, yaw_acceleration * delta)
 	pitch_node.rotation_degrees.x = lerp(pitch_node.rotation_degrees.x, pitch, pitch_acceleration * delta)
@@ -37,9 +40,10 @@ func _physics_process(delta: float) -> void:
 	set_cam_rotation.emit(yaw_node.rotation.y)
 
 func _on_set_movement_state(_movement_state: MovementState):
-	return
 	if tween:
 		tween.kill()
 	
 	tween = create_tween()
 	tween.tween_property(camera_node, "fov", _movement_state.camera_fov, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	target_pitch_max = _movement_state.max_camera_pitch

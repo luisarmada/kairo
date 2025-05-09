@@ -10,5 +10,5 @@ movement_speed = 6.0
 acceleration = 7.0
 camera_fov = 75.0
 animation_speed = 1.0
-frames_per_second = 12
+max_camera_pitch = 45
 metadata/_custom_type_script = "uid://bpkj04x1c7guy"
