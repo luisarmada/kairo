@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpxiqi268nw4u"]
+
+[ext_resource type="Material" uid="uid://c82veycg0l5xj" path="res://objects/particles/SmallExplosion/Shaders/PrimaryCloudMaterial.tres" id="1_te8s8"]
+
+[sub_resource type="Gradient" id="Gradient_burge"]
+interpolation_mode = 1
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m68pt"]
+gradient = SubResource("Gradient_burge")
+
+[sub_resource type="Curve" id="Curve_5rw4r"]
+_data = [Vector2(0, 0.111184), 0.0, 1.16623, 0, 0, Vector2(0.200514, 0.707514), 0.477617, 0.477617, 0, 0, Vector2(0.442159, 0.690476), 0.184105, 0.184105, 0, 0, Vector2(0.807198, 0.630843), 0.0, 0.0, 0, 0, Vector2(1, 0.0771079), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_sfhqu"]
+curve = SubResource("Curve_5rw4r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iuhcw"]
+particle_flag_rotate_y = true
+emission_shape_offset = Vector3(0, -0.5, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -396.1
+angle_max = 257.0
+direction = Vector3(0, 1, 0)
+spread = 1.0
+initial_velocity_min = 2.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+damping_min = 2.5
+damping_max = 3.0
+scale_min = 6.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_sfhqu")
+color_ramp = SubResource("GradientTexture1D_m68pt")
+turbulence_noise_scale = 0.75
+turbulence_noise_speed_random = 2.95
+turbulence_influence_min = 0.01
+turbulence_influence_max = 0.02
+
+[sub_resource type="SphereMesh" id="SphereMesh_8uf4s"]
+radius = 0.3
+height = 0.6
+radial_segments = 12
+rings = 12
+
+[node name="PrimaryExplosion" type="GPUParticles3D"]
+material_override = ExtResource("1_te8s8")
+cast_shadow = 0
+gi_mode = 0
+amount = 80
+lifetime = 2.0
+explosiveness = 0.1
+interpolate = false
+visibility_aabb = AABB(-4, -7.51011, -4, 8, 15.0202, 8)
+process_material = SubResource("ParticleProcessMaterial_iuhcw")
+draw_pass_1 = SubResource("SphereMesh_8uf4s")

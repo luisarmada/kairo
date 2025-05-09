@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 func _on_set_movement_state(_movement_state: MovementState) -> void:
 		#anim_fps = _movement_state.frames_per_second
 		#step_time = 1.0 / float(anim_fps)
+		if _movement_state.movement_speed > 0 and on_ground_blend == 1:
+			anim_tree["parameters/Katana/sprint_end/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
+			
 		
 		if tween:
 			tween.kill()
@@ -40,8 +43,7 @@ func _on_set_movement_state(_movement_state: MovementState) -> void:
 		tween.tween_property(anim_tree, "parameters/Katana/ground_movement/blend_position", _movement_state.id, 0.4)
 		tween.parallel().tween_property(anim_tree, "parameters/Katana/movement_anim_speed/scale", _movement_state.animation_speed, 0.7)
 
-func _on_jump(jump_state: JumpState):
-	pass
+func _on_jump(_jump_state: JumpState):
 	anim_tree["parameters/Katana/ground_jump/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 
 func _on_land():

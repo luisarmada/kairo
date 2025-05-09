@@ -7,4 +7,4 @@ class_name MovementState
 @export var acceleration : float = 6
 @export var camera_fov : float = 75
 @export var animation_speed :  float = 1.0
-@export var frames_per_second : int = 30.0
+@export var frames_per_second : int = 30

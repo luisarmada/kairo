@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cjb0ih2pl00iw"]
+[gd_scene load_steps=38 format=3 uid="uid://cjb0ih2pl00iw"]
 
 [ext_resource type="Script" uid="uid://b224yxyvo20l4" path="res://objects/characters/player/player_controller.gd" id="1_ij4rl"]
 [ext_resource type="Resource" uid="uid://ctdnbwc4meocc" path="res://objects/characters/player/movement_states/idle_state.tres" id="2_v5eyy"]
@@ -15,6 +15,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://dvq3hivwwd2da" path="res://objects/characters/humanoid_animations/GrapplingHookAnimset.glb" id="8_pquuc"]
 [ext_resource type="AnimationLibrary" uid="uid://baj17gaf74inf" path="res://objects/characters/humanoid_animations/TwinKatanaAnimset.glb" id="9_dc6qm"]
 [ext_resource type="Script" uid="uid://d30t3iyu6xate" path="res://objects/characters/player/animation_controller.gd" id="10_yed1w"]
+[ext_resource type="PackedScene" uid="uid://dpxiqi268nw4u" path="res://objects/particles/DustTrail/dust_trail_particle.tscn" id="13_5bhhu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_er5ns"]
 radius = 1.3
@@ -38,6 +39,8 @@ timeline_length = 1.03
 stretch_time_scale = true
 start_offset = 0.1
 loop_mode = 0
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_nvq5o"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5bhhu"]
 animation = &"TwinKatanaAnimset/Female_TwinKatana_Jump_Loop_Inplace_121"
@@ -83,13 +86,16 @@ snap = 1.0
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_veji5"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_veji5"]
+fadeout_time = 0.2
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_keyrx"]
-graph_offset = Vector2(-904.46, 149.901)
+graph_offset = Vector2(-885.52, 215.215)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_nvq5o")
 nodes/Animation/position = Vector2(-390, 460)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_xw5by")
-"nodes/Animation 2/position" = Vector2(-1580, 530)
+"nodes/Animation 2/position" = Vector2(-1890, 660)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_nvq5o")
+nodes/Blend2/position = Vector2(-1230, 280)
 nodes/falling/node = SubResource("AnimationNodeAnimation_5bhhu")
 nodes/falling/position = Vector2(-750, 40)
 nodes/ground_jump/node = SubResource("AnimationNodeOneShot_s6nrk")
@@ -97,20 +103,20 @@ nodes/ground_jump/position = Vector2(170, 150)
 nodes/ground_land/node = SubResource("AnimationNodeOneShot_o06gt")
 nodes/ground_land/position = Vector2(-570, 230)
 nodes/ground_land_anim/node = SubResource("AnimationNodeAnimation_55an2")
-nodes/ground_land_anim/position = Vector2(-1130, 720)
+nodes/ground_land_anim/position = Vector2(-1170, 900)
 nodes/ground_movement/node = SubResource("AnimationNodeBlendSpace1D_y0w8j")
-nodes/ground_movement/position = Vector2(-1450, 300)
+nodes/ground_movement/position = Vector2(-1840, 330)
 nodes/movement_anim_speed/node = SubResource("AnimationNodeTimeScale_xw5by")
 nodes/movement_anim_speed/position = Vector2(-860, 280)
 nodes/on_ground_blend/node = SubResource("AnimationNodeBlend2_veji5")
 nodes/on_ground_blend/position = Vector2(-170, 180)
 nodes/output/position = Vector2(340, 150)
 nodes/sprint_end/node = SubResource("AnimationNodeOneShot_veji5")
-nodes/sprint_end/position = Vector2(-1052.35, 416.653)
+nodes/sprint_end/position = Vector2(-1360, 550)
 node_connections = [&"ground_jump", 0, &"on_ground_blend", &"ground_jump", 1, &"Animation", &"ground_land", 0, &"movement_anim_speed", &"ground_land", 1, &"ground_land_anim", &"movement_anim_speed", 0, &"sprint_end", &"on_ground_blend", 0, &"falling", &"on_ground_blend", 1, &"ground_land", &"output", 0, &"ground_jump", &"sprint_end", 0, &"ground_movement", &"sprint_end", 1, &"Animation 2"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_xf1b1"]
-graph_offset = Vector2(37.8573, 816.429)
+graph_offset = Vector2(34.9773, 651.416)
 nodes/Katana/node = SubResource("AnimationNodeBlendTree_keyrx")
 nodes/Katana/position = Vector2(590, 1560)
 nodes/output/position = Vector2(930, 1560)
@@ -154,16 +160,20 @@ shape = SubResource("CapsuleShape3D_er5ns")
 [node name="Mesh" parent="SpaceRogueMesh" index="0"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="GeneralSkeleton" parent="SpaceRogueMesh/Mesh" index="0"]
-bones/1/position = Vector3(-0.0129138, 0.957098, 0.00215422)
-bones/1/rotation = Quaternion(0.0212159, -0.193288, 0.0591444, 0.979128)
-bones/2/rotation = Quaternion(-0.0437722, 0.0206459, -0.0619271, 0.996907)
-bones/3/rotation = Quaternion(0.034611, 0.0129886, -0.00842513, 0.999281)
-bones/4/rotation = Quaternion(0.0143297, 0.0263283, -0.0116481, 0.999483)
-bones/5/rotation = Quaternion(0.476631, 0.531091, 0.56701, -0.411418)
-bones/6/rotation = Quaternion(-0.171868, 0.956044, -0.206788, 0.116963)
-bones/7/rotation = Quaternion(-0.124413, -0.665721, -0.0439111, 0.734444)
-bones/8/rotation = Quaternion(-0.247777, 0.626526, -0.118056, 0.729476)
+[node name="Particle_RunDustTrail" parent="SpaceRogueMesh/Mesh" index="0" instance=ExtResource("13_5bhhu")]
+transform = Transform3D(0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, -0.5)
+emitting = false
+
+[node name="GeneralSkeleton" parent="SpaceRogueMesh/Mesh" index="1"]
+bones/1/position = Vector3(-0.0129892, 0.957037, 0.00324737)
+bones/1/rotation = Quaternion(0.0226132, -0.192556, 0.0582166, 0.979297)
+bones/2/rotation = Quaternion(-0.0458255, 0.0204584, -0.0628536, 0.99676)
+bones/3/rotation = Quaternion(0.034404, 0.01194, -0.00489917, 0.999325)
+bones/4/rotation = Quaternion(0.0123539, 0.0259227, -0.00934179, 0.999544)
+bones/5/rotation = Quaternion(0.471638, 0.534986, 0.564806, -0.415141)
+bones/6/rotation = Quaternion(-0.162398, 0.955707, -0.219249, 0.110365)
+bones/7/rotation = Quaternion(-0.135971, -0.64926, -0.0614546, 0.745786)
+bones/8/rotation = Quaternion(-0.24646, 0.625845, -0.11764, 0.730573)
 bones/9/rotation = Quaternion(0.14361, 0.0773201, -0.00428927, 0.9866)
 bones/10/rotation = Quaternion(0.346531, 0.222546, -0.0224513, 0.91098)
 bones/11/rotation = Quaternion(0.337453, 0.178689, 0.0091719, 0.924182)
@@ -181,10 +191,10 @@ bones/22/rotation = Quaternion(-0.0121318, -0.00661539, 0.0141736, 0.999804)
 bones/22/scale = Vector3(1.00005, 0.999982, 0.999968)
 bones/23/rotation = Quaternion(0.141561, 0.311342, 0.0021598, 0.939693)
 bones/23/scale = Vector3(1.00002, 1, 0.999981)
-bones/26/rotation = Quaternion(0.402891, -0.579269, -0.612718, -0.355955)
-bones/27/rotation = Quaternion(0.141298, 0.956168, -0.243314, -0.0810932)
-bones/28/rotation = Quaternion(-0.127744, 0.664428, 0.0458651, 0.734924)
-bones/29/rotation = Quaternion(-0.276679, -0.63535, 0.201537, 0.692216)
+bones/26/rotation = Quaternion(0.397931, -0.583201, -0.610174, -0.359465)
+bones/27/rotation = Quaternion(0.132995, 0.95448, -0.254145, -0.0817988)
+bones/28/rotation = Quaternion(-0.138116, 0.649599, 0.0614521, 0.745096)
+bones/29/rotation = Quaternion(-0.276549, -0.635212, 0.19813, 0.693376)
 bones/30/rotation = Quaternion(0.141585, -0.0812913, 0.000391334, 0.986583)
 bones/31/rotation = Quaternion(0.339705, -0.23547, 0.010073, 0.910523)
 bones/32/rotation = Quaternion(0.330772, -0.189905, -0.0205102, 0.924178)
@@ -202,35 +212,35 @@ bones/43/rotation = Quaternion(0.00203285, 0.0118503, 0.0130939, 0.999842)
 bones/43/scale = Vector3(1.00004, 0.999992, 0.999971)
 bones/44/rotation = Quaternion(0.134868, -0.314213, 0.00767299, 0.939692)
 bones/44/scale = Vector3(1.00002, 1, 0.999981)
-bones/47/rotation = Quaternion(0.00644386, 0.0592022, 0.0176931, 0.998068)
-bones/48/rotation = Quaternion(0.094456, 0.0771586, -0.0122938, 0.992458)
-bones/49/rotation = Quaternion(0.185443, 0.04497, 0.971549, 0.140292)
-bones/50/rotation = Quaternion(-0.00298053, 0.99923, -0.0390619, 0.00226013)
+bones/47/rotation = Quaternion(0.0175062, 0.0578249, 0.0156892, 0.99805)
+bones/48/rotation = Quaternion(0.0891327, 0.0798106, -0.0160397, 0.992687)
+bones/49/rotation = Quaternion(0.18557, 0.0478289, 0.971585, 0.13892)
+bones/50/rotation = Quaternion(-0.00295691, 0.999055, -0.0432867, 0.00261639)
 bones/51/rotation = Quaternion(-0.68828, 0.722863, 0.016232, 0.0589537)
-bones/52/rotation = Quaternion(0.073889, 0.701484, -0.707421, -0.0448958)
+bones/52/rotation = Quaternion(0.0731661, 0.699687, -0.70924, -0.0454174)
 bones/53/rotation = Quaternion(-5.40006e-08, 1, -2.98023e-08, 5.40006e-08)
 bones/54/rotation = Quaternion(0.0103014, -0.0270749, -0.673926, 0.738231)
-bones/55/rotation = Quaternion(-0.0383394, -0.0403988, 0.997704, 0.0385455)
+bones/55/rotation = Quaternion(-0.0384263, -0.0394391, 0.997789, 0.0372229)
 bones/56/rotation = Quaternion(0.000988662, 0.997398, -0.07192, -0.00480855)
 bones/57/rotation = Quaternion(0.0589513, -0.0162335, 0.722862, 0.688282)
-bones/58/rotation = Quaternion(-0.0187007, 0.694589, -0.718888, 0.0199069)
-bones/59/rotation = Quaternion(0.00216259, 0.996674, 0.0814533, 0.000933891)
+bones/58/rotation = Quaternion(-0.0194108, 0.69685, -0.716686, 0.0195976)
+bones/59/rotation = Quaternion(0.00212033, 0.996463, 0.0840023, 0.000674118)
 bones/60/rotation = Quaternion(0.738231, 0.673925, -0.0270726, -0.0102997)
 bones/62/position = Vector3(0.00669451, 0.12807, -0.0454785)
 bones/62/rotation = Quaternion(0.025099, 0.0209515, 0.704125, 0.709323)
-bones/63/position = Vector3(-0.0261511, 0.13771, -0.266295)
-bones/63/rotation = Quaternion(-0.68973, 0.67261, -0.100594, 0.248495)
+bones/63/position = Vector3(-0.0264957, 0.137787, -0.26545)
+bones/63/rotation = Quaternion(-0.689712, 0.672342, -0.0993239, 0.249778)
 bones/63/scale = Vector3(0.999991, 0.999987, 1)
-bones/65/position = Vector3(-0.294666, 0.916555, -0.0747034)
-bones/65/rotation = Quaternion(0.526851, 0.0769436, 0.497985, 0.684484)
-bones/66/position = Vector3(0.295424, -0.238348, 0.398553)
-bones/66/rotation = Quaternion(0.578719, -0.43734, 0.684785, 0.0699067)
+bones/65/position = Vector3(-0.285847, 0.911986, -0.0772136)
+bones/65/rotation = Quaternion(0.539679, 0.0765262, 0.506667, 0.667966)
+bones/66/position = Vector3(0.283818, -0.23162, 0.395163)
+bones/66/rotation = Quaternion(0.567342, -0.428081, 0.700378, 0.0658808)
 
 [node name="Mesh" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="0"]
 material_override = SubResource("StandardMaterial3D_dc6qm")
 
 [node name="LeftHandKatana" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="1"]
-transform = Transform3D(-0.583377, 0.769074, -0.261143, 0.17458, -0.195274, -0.965085, -0.793217, -0.608599, -0.0203466, 0.245024, 0.897158, 0.031612)
+transform = Transform3D(-0.569612, 0.77654, -0.269309, 0.221577, -0.170448, -0.960131, -0.791483, -0.606575, -0.074974, 0.243113, 0.895515, 0.0243438)
 bone_name = "LeftHand"
 bone_idx = 8
 
@@ -238,7 +248,7 @@ bone_idx = 8
 transform = Transform3D(-0.217475, 0.080003, -1.27918, 1.19142, -0.465673, -0.231679, -0.472474, -1.21109, 0.004581, -0.0652891, 0.020155, 0.0852615)
 
 [node name="RightHandKatana" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="2"]
-transform = Transform3D(-0.821304, -0.473773, 0.317804, -0.298798, -0.117317, -0.947078, 0.485983, -0.872798, -0.0452096, -0.294612, 0.916503, -0.0749027)
+transform = Transform3D(-0.810207, -0.476735, 0.341012, -0.335901, -0.0991436, -0.936665, 0.48035, -0.873438, -0.0798088, -0.285956, 0.912062, -0.0768489)
 bone_name = "RightHand"
 bone_idx = 29
 
@@ -246,7 +256,7 @@ bone_idx = 29
 transform = Transform3D(-0.615832, 0.0158507, 1.14477, -1.08552, -0.421198, -0.578128, 0.363854, -1.22977, 0.212764, 0.0491116, 0.028254, 0.0920064)
 
 [node name="BoostFlames" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="3"]
-transform = Transform3D(0.939434, 0.0229029, -0.341965, -0.0152859, 0.999572, 0.0249527, 0.34239, -0.0182142, 0.939381, -0.037197, 1.10666, 0.0184361)
+transform = Transform3D(0.93976, 0.0273653, -0.340738, -0.0194526, 0.999456, 0.0266176, 0.341281, -0.0183859, 0.939781, -0.037055, 1.10658, 0.0200192)
 bone_name = "Spine"
 bone_idx = 2
 
@@ -259,6 +269,7 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="SpaceRogueMesh"]
 tree_root = SubResource("AnimationNodeBlendTree_xf1b1")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Katana/Blend2/blend_amount = 0
 parameters/Katana/ground_jump/active = false
 parameters/Katana/ground_jump/internal_active = false
 parameters/Katana/ground_jump/request = 0
@@ -268,7 +279,7 @@ parameters/Katana/ground_land/request = 0
 parameters/Katana/ground_movement/blend_position = 0.0
 parameters/Katana/movement_anim_speed/scale = 1.0
 parameters/Katana/on_ground_blend/blend_amount = 1.0
-parameters/Katana/sprint_end/active = false
+parameters/Katana/sprint_end/active = 0.0
 parameters/Katana/sprint_end/internal_active = false
 parameters/Katana/sprint_end/request = 0
 
@@ -279,7 +290,7 @@ anim_player = NodePath("../AnimationPlayer")
 character = NodePath("../..")
 
 [node name="CameraRoot" type="Node3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, 0)
 script = ExtResource("4_ij4rl")
 
 [node name="CameraYaw" type="Node3D" parent="CameraRoot"]
@@ -287,8 +298,9 @@ script = ExtResource("4_ij4rl")
 [node name="CameraPitch" type="Node3D" parent="CameraRoot/CameraYaw"]
 
 [node name="SpringArm3D" type="SpringArm3D" parent="CameraRoot/CameraYaw/CameraPitch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 shape = SubResource("SphereShape3D_y6t6d")
-spring_length = 12.0
+spring_length = 9.0
 
 [node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
 transform = Transform3D(0.322581, 0, -3.55271e-15, 0, 0.322581, 0, 1.77636e-15, 0, 0.322581, 0, 0, 0)
@@ -301,10 +313,11 @@ mesh = SubResource("QuadMesh_ij4rl")
 skeleton = NodePath("../../../..")
 metadata/_edit_lock_ = true
 
-[node name="MovementController" type="Node" parent="." node_paths=PackedStringArray("character", "mesh_root")]
+[node name="MovementController" type="Node" parent="." node_paths=PackedStringArray("character", "mesh_root", "run_dust_trail")]
 script = ExtResource("8_fnslv")
 character = NodePath("..")
 mesh_root = NodePath("../SpaceRogueMesh/Mesh")
+run_dust_trail = NodePath("../SpaceRogueMesh/Mesh/Particle_RunDustTrail")
 
 [connection signal="jump" from="." to="SpaceRogueMesh/AnimationController" method="_on_jump"]
 [connection signal="jump" from="." to="MovementController" method="_on_jump"]

@@ -1,5 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://3825cccgrt7g"]
+[gd_scene load_steps=21 format=3 uid="uid://3825cccgrt7g"]
 
+[ext_resource type="Script" uid="uid://dg3me67anhfqh" path="res://objects/particles/SmallExplosion/ParticleDemoHandler.gd" id="1_j3c5n"]
+[ext_resource type="PackedScene" uid="uid://cxtblmouwvmye" path="res://objects/particles/SmallExplosion/SmallExplosionParticle.tscn" id="2_ojupy"]
 [ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/z_mech/PrideMech.tscn" id="4_4l0s3"]
 [ext_resource type="PackedScene" uid="uid://cmulvmoc07eel" path="res://art/models/environment/cyberpunk_buildings/Cyberpunk_City.fbx" id="5_s06tt"]
 [ext_resource type="ArrayMesh" uid="uid://c6h1amj5p6bnw" path="res://art/models/environment/cyberpunk_buildings/Motel_Building.res" id="6_4l0s3"]
@@ -48,19 +50,22 @@ shader_parameter/_speed = 2.0
 shader_parameter/_scale = 3.0
 
 [node name="Test" type="Node3D"]
+script = ExtResource("1_j3c5n")
+ParticleEffect = ExtResource("2_ojupy")
+SpawnSpread = 1.0
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.593, 0, 0, 0, 1.17494, 0, 0, 0, 1.53199, 0, 0, 0)
+transform = Transform3D(1.593, 0, 0, 0, 1.17494, 0, 0, 0, 1.53199, -61.1677, 0, 12.3216)
 material_override = SubResource("StandardMaterial3D_1ii8p")
 mesh = SubResource("CylinderMesh_ub57u")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, -4.00109, 0.934748, -1.04904e-05)
+transform = Transform3D(5, 0, 0, 0, -2.18557e-07, -5, 0, 5, -2.18557e-07, -65.1687, 0.934748, 12.3216)
 material_override = SubResource("StandardMaterial3D_gnxdw")
 mesh = SubResource("SphereMesh_6cfdx")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.72867, -1.00583, 4.39662e-08, 0, -8.74228e-08, -2, 1.00583, 1.72867, -7.55627e-08, 3.60105, 1.36415, 0.197804)
+transform = Transform3D(1.72867, -1.00583, 4.39662e-08, 0, -8.74228e-08, -2, 1.00583, 1.72867, -7.55627e-08, -57.5666, 1.36415, 12.5194)
 material_override = SubResource("StandardMaterial3D_sd1ih")
 mesh = SubResource("BoxMesh_pfex3")
 
@@ -73,7 +78,7 @@ light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 
 [node name="ZMech_v3" parent="." instance=ExtResource("4_4l0s3")]
-transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -22.7821, -2.34274, -26.2506)
+transform = Transform3D(110, 0, 0, 0, 110, 0, 0, 0, 110, -22.7821, -2.34274, -59.589)
 
 [node name="LookAtModifier3D" parent="ZMech_v3/ZMech_v2/GeneralSkeleton" index="1"]
 target_node = NodePath("../../../../PlayerPrefab")
@@ -112,7 +117,7 @@ mesh = ExtResource("10_b2hld")
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.46604, 0)
 use_collision = true
-size = Vector3(200, 1, 200)
+size = Vector3(500, 1, 500)
 
 [node name="PlayerPrefab" parent="." instance=ExtResource("11_j3c5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2258, -1.96604, 11.0728)

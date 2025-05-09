@@ -6,6 +6,9 @@ signal land()
 @export var mesh_root : Node3D
 @export var rotation_speed : float = 8
 @export var fall_gravity : float = 55
+
+@export var run_dust_trail : GPUParticles3D
+
 var direction : Vector3
 var velocity : Vector3
 var acceleration : float
@@ -22,10 +25,13 @@ func _physics_process(delta: float) -> void:
 	if not character.is_on_floor():
 		velocity.y -= (jump_gravity if velocity.y >= 0 else fall_gravity) * delta
 		has_landed = false
+		run_dust_trail.emitting = false
 	else:
 		if not has_landed:
 			has_landed = true
 			land.emit()
+		
+		run_dust_trail.emitting = speed > 20
 	
 	if acceleration < 100.0:
 		character.velocity = character.velocity.lerp(velocity, acceleration * delta)

@@ -8,6 +8,7 @@ signal sprint_end()
 @export var movement_states : Dictionary
 @export var jump_state : Resource
 
+var move_time : float = 0.0
 var movement_direction : Vector3
 var desires_sprint : bool = false
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_movement_ongoing():
 		set_movement_direction.emit(movement_direction)
+		move_time += delta
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("movement"):
@@ -26,18 +28,16 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("jump"):
 			jump.emit(jump_state)
 		
-		if event.is_action_pressed("sprint"):
-			desires_sprint = true
-		elif event.is_action_pressed("walk"):
-			desires_sprint = false
+		if event.is_action_pressed("movespeed_toggle"):
+			desires_sprint = !desires_sprint
 		
 		if is_movement_ongoing():
 			set_movement_state.emit(movement_states["sprint" if desires_sprint else "walk"])
 		else:
-			print(get_last_motion().length_squared())
-			if get_last_motion().length_squared() > 0.1:
+			if get_last_motion().length_squared() > 0.1 and get_last_motion().y > 0 and move_time > 0.8:
 				sprint_end.emit()
 			set_movement_state.emit(movement_states["idle"])
+			move_time = 0.0
 			
 		
 

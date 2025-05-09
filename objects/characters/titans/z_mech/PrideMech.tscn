@@ -27,5 +27,6 @@ surface_material_override/2 = SubResource("StandardMaterial3D_x8r24")
 surface_material_override/3 = SubResource("StandardMaterial3D_uf86a")
 
 [node name="LookAtModifier3D" type="LookAtModifier3D" parent="ZMech_v2/GeneralSkeleton" index="1"]
+active = false
 bone_name = "Spine"
 bone = 2
