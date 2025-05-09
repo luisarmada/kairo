@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 	set_cam_rotation.emit(yaw_node.rotation.y)
 
 func _on_set_movement_state(_movement_state: MovementState):
+	return
 	if tween:
 		tween.kill()
 	
