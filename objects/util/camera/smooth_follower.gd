@@ -1,6 +1,12 @@
 extends CSGSphere3D
 
-@export var smoothing : float = 7
+@export var smoothing : float = 0.5
+@export var target_node : Node3D = null
 
 func _physics_process(delta: float) -> void:
-	$Follower.global_position = lerp($Follower.global_position, global_position, smoothing * delta)
+	if target_node != null:
+		global_position = lerp(global_position, target_node.global_position, smoothing * delta)
+		
+func update_target_node(target: Node3D, smooth: float) -> void:
+	target_node = target
+	smoothing = smooth

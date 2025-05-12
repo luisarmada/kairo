@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://3825cccgrt7g"]
+[gd_scene load_steps=22 format=3 uid="uid://3825cccgrt7g"]
 
 [ext_resource type="Script" uid="uid://dg3me67anhfqh" path="res://objects/particles/SmallExplosion/ParticleDemoHandler.gd" id="1_j3c5n"]
 [ext_resource type="PackedScene" uid="uid://cxtblmouwvmye" path="res://objects/particles/SmallExplosion/SmallExplosionParticle.tscn" id="2_ojupy"]
 [ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/z_mech/PrideMech.tscn" id="4_4l0s3"]
+[ext_resource type="PackedScene" uid="uid://cgvynb2ol8xkd" path="res://objects/characters/mounts/horse/MechaHorse.tscn" id="4_ojupy"]
 [ext_resource type="PackedScene" uid="uid://cmulvmoc07eel" path="res://art/models/environment/cyberpunk_buildings/Cyberpunk_City.fbx" id="5_s06tt"]
 [ext_resource type="ArrayMesh" uid="uid://c6h1amj5p6bnw" path="res://art/models/environment/cyberpunk_buildings/Motel_Building.res" id="6_4l0s3"]
 [ext_resource type="ArrayMesh" uid="uid://bf17c6ry8gbih" path="res://art/models/environment/cyberpunk_buildings/TallNeon_Building.res" id="7_4l0s3"]
@@ -120,10 +121,13 @@ use_collision = true
 size = Vector3(500, 1, 500)
 
 [node name="PlayerPrefab" parent="." instance=ExtResource("11_j3c5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2258, -1.96604, 11.0728)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.5921, -1.96604, 50.8913)
 
 [node name="3DFire2" parent="." instance=ExtResource("11_6obu8")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -19.038, -2.00533, -1.75901)
 material_override = SubResource("ShaderMaterial_b2hld")
+
+[node name="mecha_horse" parent="." instance=ExtResource("4_ojupy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53, -2, 39)
 
 [editable path="ZMech_v3"]

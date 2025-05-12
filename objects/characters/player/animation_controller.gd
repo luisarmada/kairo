@@ -3,11 +3,15 @@ extends Node
 @export var anim_tree : AnimationTree
 @export var anim_player : AnimationPlayer
 @export var character : CharacterBody3D
-@export var lookat_camera_modifier : LookAtModifier3D
 @export var character_mesh : Node3D
 
-@export var look_at_target : Node3D
-@export var camera_follower : Node3D
+@export var lookat_camera_modifier : LookAtModifier3D
+var look_at_target : Node3D = null
+@export var look_at_smooth_follower : Node3D
+
+@export var camera_target_node : Node3D # Towards camera
+@export var camera_forward_node : Node3D # Camera facing direction
+@export var mesh_forward_node : Node3D # Mesh facing direction
 
 var tween : Tween
 
@@ -35,10 +39,11 @@ func _physics_process(delta: float) -> void:
 	on_ground_blend = lerp(on_ground_blend, on_ground_blend_target, 10 * delta)
 	anim_tree["parameters/Katana/on_ground_blend/blend_amount"] = on_ground_blend
 	
-	if look_at_target != null:
+	# Head look at location logic
+	if on_ground_blend_target != 0:
 		lookat_camera_modifier.active = true
 		
-		var lookat_target_node_pos = look_at_target.global_position
+		var lookat_target_node_pos = camera_forward_node.global_position
 		var lookat_dir = (lookat_target_node_pos - character_mesh.global_position)
 		lookat_dir.y = 0
 		lookat_dir = lookat_dir.normalized()
@@ -50,23 +55,29 @@ func _physics_process(delta: float) -> void:
 			var forward_vector = -character_mesh.global_transform.basis.z.normalized()
 			var dot_product = forward_vector.dot(lookat_dir)
 			
-			print(dot_product)
 			
+			print(dot_product)
 			if dot_product > 0.4 and dot_product < 1.0:
-				lookat_camera_modifier.target_node = camera_follower.get_path()
+				# Look at camera
+				update_look_at_target(camera_target_node)
 			else:
-				lookat_camera_modifier.target_node = look_at_target.get_path()
+				# Look in straight direction
+				update_look_at_target(camera_forward_node)
 		else:
 			# camera straight above or below
-			lookat_camera_modifier.active = false
+			update_look_at_target(mesh_forward_node, false)
 	else:
-		lookat_camera_modifier.active = false
+		update_look_at_target(mesh_forward_node, false, 6.0)
 
-
+func update_look_at_target(target: Node3D, allow_vertical: bool = true, smoothing: float = 3.0):
+	if look_at_target == target:
+		return
+		
+	look_at_target = target
+	lookat_camera_modifier.use_secondary_rotation = allow_vertical
+	look_at_smooth_follower.update_target_node(look_at_target, smoothing)
 
 func _on_set_movement_state(_movement_state: MovementState) -> void:
-		#anim_fps = _movement_state.frames_per_second
-		#step_time = 1.0 / float(anim_fps)
 		if _movement_state.movement_speed > 0 and on_ground_blend_target == 1:
 			anim_tree["parameters/Katana/sprint_end/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
 	

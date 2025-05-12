@@ -3,7 +3,5 @@
 [ext_resource type="Script" uid="uid://bg77k0peiooiw" path="res://objects/util/camera/smooth_follower.gd" id="1_6figh"]
 
 [node name="SmoothFollower" type="CSGSphere3D"]
+visible = false
 script = ExtResource("1_6figh")
-
-[node name="Follower" type="CSGSphere3D" parent="."]
-top_level = true
