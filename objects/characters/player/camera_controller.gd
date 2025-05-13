@@ -21,13 +21,13 @@ var pitch_min : float = -55
 
 var tween
 
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		yaw += -event.relative.x * yaw_sensitivity
 		pitch += -event.relative.y * pitch_sensitivity
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
 
 func _physics_process(delta: float) -> void:
 	pitch = clampf(pitch, pitch_min, pitch_max)

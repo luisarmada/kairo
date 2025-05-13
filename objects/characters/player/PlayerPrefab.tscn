@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjb0ih2pl00iw"]
+[gd_scene load_steps=42 format=3 uid="uid://cjb0ih2pl00iw"]
 
 [ext_resource type="Script" uid="uid://b224yxyvo20l4" path="res://objects/characters/player/player_controller.gd" id="1_ij4rl"]
 [ext_resource type="Resource" uid="uid://ctdnbwc4meocc" path="res://objects/characters/player/movement_states/idle_state.tres" id="2_v5eyy"]
@@ -15,6 +15,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://dvq3hivwwd2da" path="res://objects/characters/humanoid_animations/GrapplingHookAnimset.glb" id="8_pquuc"]
 [ext_resource type="AnimationLibrary" uid="uid://baj17gaf74inf" path="res://objects/characters/humanoid_animations/TwinKatanaAnimset.glb" id="9_dc6qm"]
 [ext_resource type="Script" uid="uid://d30t3iyu6xate" path="res://objects/characters/player/animation_controller.gd" id="10_yed1w"]
+[ext_resource type="PackedScene" uid="uid://da1tb5w03oen5" path="res://objects/weapons/RS-AuxiliaryWeapons/3-Auxiliary(OrbitCannons)/mAuxiliary(OrbitCannon)OBJ.obj" id="12_o06gt"]
 [ext_resource type="PackedScene" uid="uid://dpxiqi268nw4u" path="res://objects/particles/DustTrail/dust_trail_particle.tscn" id="13_5bhhu"]
 [ext_resource type="PackedScene" uid="uid://6yxpc10ixbcv" path="res://objects/util/camera/smooth_follower.tscn" id="16_s6nrk"]
 
@@ -24,6 +25,10 @@ height = 5.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dc6qm"]
 albedo_texture = ExtResource("7_pquuc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55an2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o06gt"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xw5by"]
 animation = &"TwinKatanaAnimset/Female_TwinKatana_Sprint_Stop_Inplace_151"
@@ -155,6 +160,18 @@ jump_state = ExtResource("6_nvq5o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 shape = SubResource("CapsuleShape3D_er5ns")
 
+[node name="AnimationController" type="Node" parent="." node_paths=PackedStringArray("anim_tree", "anim_player", "character", "character_mesh", "lookat_camera_modifier", "look_at_smooth_follower", "camera_target_node", "camera_forward_node", "mesh_forward_node")]
+script = ExtResource("10_yed1w")
+anim_tree = NodePath("../SpaceRogueMesh/AnimationTree")
+anim_player = NodePath("../SpaceRogueMesh/AnimationPlayer")
+character = NodePath("..")
+character_mesh = NodePath("../SpaceRogueMesh/Mesh")
+lookat_camera_modifier = NodePath("../SpaceRogueMesh/Mesh/GeneralSkeleton/LookCameraDirection")
+look_at_smooth_follower = NodePath("../CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/SmoothFollower")
+camera_target_node = NodePath("../CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D")
+camera_forward_node = NodePath("../CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/LookAtTarget_CamView")
+mesh_forward_node = NodePath("../SpaceRogueMesh/Mesh/GeneralSkeleton/Mesh/MeshForward")
+
 [node name="SpaceRogueMesh" parent="." instance=ExtResource("6_pquuc")]
 
 [node name="Mesh" parent="SpaceRogueMesh" index="0"]
@@ -165,15 +182,15 @@ transform = Transform3D(0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, -0
 emitting = false
 
 [node name="GeneralSkeleton" parent="SpaceRogueMesh/Mesh" index="1"]
-bones/1/position = Vector3(-0.0127979, 0.956992, 0.00364355)
-bones/1/rotation = Quaternion(0.0220155, -0.192869, 0.0586128, 0.979225)
-bones/2/rotation = Quaternion(-0.0471684, 0.0202358, -0.0635992, 0.996655)
-bones/3/rotation = Quaternion(0.0362499, 0.0118029, -0.0048565, 0.999261)
-bones/4/rotation = Quaternion(0.0143924, 0.0259627, -0.00907315, 0.999518)
-bones/5/rotation = Quaternion(0.474126, 0.533055, 0.566633, -0.41229)
-bones/6/rotation = Quaternion(-0.165832, 0.955983, -0.21468, 0.11184)
-bones/7/rotation = Quaternion(-0.135264, -0.650294, -0.06036, 0.745103)
-bones/8/rotation = Quaternion(-0.246884, 0.625617, -0.117196, 0.730696)
+bones/1/position = Vector3(-0.0130111, 0.957042, 0.00320211)
+bones/1/rotation = Quaternion(0.0226811, -0.19252, 0.0581717, 0.979305)
+bones/2/rotation = Quaternion(-0.0456706, 0.0204856, -0.0627813, 0.996771)
+bones/3/rotation = Quaternion(0.0342007, 0.0119566, -0.00491048, 0.999331)
+bones/4/rotation = Quaternion(0.0121322, 0.0259186, -0.00937553, 0.999547)
+bones/5/rotation = Quaternion(0.471382, 0.535185, 0.56462, -0.415428)
+bones/6/rotation = Quaternion(-0.162045, 0.955679, -0.219697, 0.110235)
+bones/7/rotation = Quaternion(-0.136046, -0.649149, -0.0615712, 0.745859)
+bones/8/rotation = Quaternion(-0.246411, 0.625871, -0.117691, 0.730559)
 bones/9/rotation = Quaternion(0.14361, 0.0773201, -0.00428927, 0.9866)
 bones/10/rotation = Quaternion(0.346531, 0.222546, -0.0224513, 0.91098)
 bones/11/rotation = Quaternion(0.337453, 0.178689, 0.0091719, 0.924182)
@@ -191,10 +208,10 @@ bones/22/rotation = Quaternion(-0.0121318, -0.00661539, 0.0141736, 0.999804)
 bones/22/scale = Vector3(1.00005, 0.999982, 0.999968)
 bones/23/rotation = Quaternion(0.141561, 0.311342, 0.0021598, 0.939693)
 bones/23/scale = Vector3(1.00002, 1, 0.999981)
-bones/26/rotation = Quaternion(0.400312, -0.5811, -0.61227, -0.356648)
-bones/27/rotation = Quaternion(0.134704, 0.955494, -0.249003, -0.0829746)
-bones/28/rotation = Quaternion(-0.137946, 0.649861, 0.0611489, 0.744925)
-bones/29/rotation = Quaternion(-0.277289, -0.635028, 0.197186, 0.693518)
+bones/26/rotation = Quaternion(0.397685, -0.583417, -0.609961, -0.35975)
+bones/27/rotation = Quaternion(0.13283, 0.954368, -0.25469, -0.0816732)
+bones/28/rotation = Quaternion(-0.138097, 0.649626, 0.0614273, 0.745078)
+bones/29/rotation = Quaternion(-0.276474, -0.635231, 0.198234, 0.693359)
 bones/30/rotation = Quaternion(0.141585, -0.0812913, 0.000391334, 0.986583)
 bones/31/rotation = Quaternion(0.339705, -0.23547, 0.010073, 0.910523)
 bones/32/rotation = Quaternion(0.330772, -0.189905, -0.0205102, 0.924178)
@@ -212,29 +229,29 @@ bones/43/rotation = Quaternion(0.00203285, 0.0118503, 0.0130939, 0.999842)
 bones/43/scale = Vector3(1.00004, 0.999992, 0.999971)
 bones/44/rotation = Quaternion(0.134868, -0.314213, 0.00767299, 0.939692)
 bones/44/scale = Vector3(1.00002, 1, 0.999981)
-bones/47/rotation = Quaternion(0.0155084, 0.0580742, 0.0160513, 0.998063)
-bones/48/rotation = Quaternion(0.0885197, 0.079918, -0.0161477, 0.992732)
-bones/49/rotation = Quaternion(0.185493, 0.0461178, 0.971567, 0.139723)
-bones/50/rotation = Quaternion(-0.00297022, 0.999129, -0.0415409, 0.00247032)
+bones/47/rotation = Quaternion(0.0177029, 0.0578004, 0.0156535, 0.998048)
+bones/48/rotation = Quaternion(0.0892412, 0.0797837, -0.0160066, 0.99268)
+bones/49/rotation = Quaternion(0.185579, 0.0480157, 0.971587, 0.138831)
+bones/50/rotation = Quaternion(-0.0029554, 0.999046, -0.0434821, 0.00263273)
 bones/51/rotation = Quaternion(-0.68828, 0.722863, 0.016232, 0.0589537)
-bones/52/rotation = Quaternion(0.0735508, 0.700027, -0.708875, -0.0452588)
+bones/52/rotation = Quaternion(0.0731223, 0.69965, -0.70928, -0.0454353)
 bones/53/rotation = Quaternion(-5.40006e-08, 1, -2.98023e-08, 5.40006e-08)
 bones/54/rotation = Quaternion(0.0103014, -0.0270749, -0.673926, 0.738231)
-bones/55/rotation = Quaternion(-0.038382, -0.0401861, 0.997727, 0.038109)
+bones/55/rotation = Quaternion(-0.0384337, -0.0393743, 0.997795, 0.0371226)
 bones/56/rotation = Quaternion(0.000988662, 0.997398, -0.07192, -0.00480855)
 bones/57/rotation = Quaternion(0.0589513, -0.0162335, 0.722862, 0.688282)
-bones/58/rotation = Quaternion(-0.0190569, 0.696772, -0.716772, 0.0195839)
-bones/59/rotation = Quaternion(0.00210365, 0.996383, 0.0849491, 0.000574452)
+bones/58/rotation = Quaternion(-0.0194463, 0.696834, -0.7167, 0.0196009)
+bones/59/rotation = Quaternion(0.00212073, 0.996465, 0.0839783, 0.000676599)
 bones/60/rotation = Quaternion(0.738231, 0.673925, -0.0270726, -0.0102997)
 bones/62/position = Vector3(0.00669451, 0.12807, -0.0454785)
 bones/62/rotation = Quaternion(0.025099, 0.0209515, 0.704125, 0.709323)
-bones/63/position = Vector3(-0.0265275, 0.137794, -0.265372)
-bones/63/rotation = Quaternion(-0.689707, 0.672321, -0.0992104, 0.249892)
+bones/63/position = Vector3(-0.0264921, 0.137786, -0.265458)
+bones/63/rotation = Quaternion(-0.689712, 0.672344, -0.0993368, 0.249765)
 bones/63/scale = Vector3(0.999991, 0.999987, 1)
-bones/65/position = Vector3(-0.285112, 0.911228, -0.078283)
-bones/65/rotation = Quaternion(0.538709, 0.0744452, 0.50671, 0.668951)
-bones/66/position = Vector3(0.284239, -0.234053, 0.393188)
-bones/66/rotation = Quaternion(0.568113, -0.432338, 0.697175, 0.0654152)
+bones/65/position = Vector3(-0.285936, 0.912075, -0.0770908)
+bones/65/rotation = Quaternion(0.539738, 0.0767229, 0.50663, 0.667925)
+bones/66/position = Vector3(0.283805, -0.231358, 0.395388)
+bones/66/rotation = Quaternion(0.567288, -0.427646, 0.70068, 0.0659629)
 
 [node name="Mesh" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="0"]
 material_override = SubResource("StandardMaterial3D_dc6qm")
@@ -243,7 +260,7 @@ material_override = SubResource("StandardMaterial3D_dc6qm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 1)
 
 [node name="LeftHandKatana" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="1"]
-transform = Transform3D(-0.574311, 0.773698, -0.267503, 0.219912, -0.168947, -0.960779, -0.788547, -0.610613, -0.0731177, 0.243654, 0.894918, 0.0227866)
+transform = Transform3D(-0.56915, 0.776801, -0.269534, 0.221747, -0.170649, -0.960056, -0.791768, -0.606184, -0.0751286, 0.243049, 0.89557, 0.0245199)
 bone_name = "LeftHand"
 bone_idx = 8
 
@@ -251,7 +268,7 @@ bone_idx = 8
 transform = Transform3D(-0.217475, 0.080003, -1.27918, 1.19142, -0.465673, -0.231679, -0.472474, -1.21109, 0.004581, -0.0652891, 0.020155, 0.0852615)
 
 [node name="RightHandKatana" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="2"]
-transform = Transform3D(-0.813181, -0.472998, 0.33913, -0.334559, -0.0969059, -0.937379, 0.476243, -0.875718, -0.0794441, -0.285105, 0.911225, -0.0782698)
+transform = Transform3D(-0.809889, -0.477174, 0.341152, -0.335927, -0.0994734, -0.936621, 0.480867, -0.873161, -0.0797332, -0.286053, 0.912161, -0.0766603)
 bone_name = "RightHand"
 bone_idx = 29
 
@@ -259,7 +276,7 @@ bone_idx = 29
 transform = Transform3D(-0.615832, 0.0158507, 1.14477, -1.08552, -0.421198, -0.578128, 0.363854, -1.22977, 0.212764, 0.0491116, 0.028254, 0.0920064)
 
 [node name="BoostFlames" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="3"]
-transform = Transform3D(0.939293, 0.029217, -0.34187, -0.0200653, 0.99934, 0.0302765, 0.342529, -0.0215788, 0.939259, -0.0369565, 1.10654, 0.0202059)
+transform = Transform3D(0.939814, 0.0271766, -0.340604, -0.0194075, 0.999468, 0.0261968, 0.341135, -0.0180098, 0.939842, -0.0370663, 1.10658, 0.0199977)
 bone_name = "Spine"
 bone_idx = 2
 
@@ -280,6 +297,41 @@ secondary_positive_limit_angle = 0.174533
 secondary_positive_damp_threshold = 1.0
 secondary_negative_limit_angle = 0.872665
 secondary_negative_damp_threshold = 1.0
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="5"]
+transform = Transform3D(0.919104, -0.122669, -0.374433, 0.105202, 0.992203, -0.0668219, 0.379711, 0.022025, 0.924843, -0.0130111, 0.957042, 0.00320211)
+bone_name = "Hips"
+bone_idx = 1
+
+[node name="mAuxiliary(OrbitCannon)OBJ" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D" instance=ExtResource("12_o06gt")]
+transform = Transform3D(-0.749999, 0.000997898, 0.00134318, -0.000936169, -0.799999, -0.00254219, -0.000502501, 0.00101755, -2, 0.139867, 0.109746, -0.0171214)
+
+[node name="mAuxiliary(OrbitCannonLauncher)_bOcto" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_55an2")
+
+[node name="mAuxiliary(OrbitB)_bOcto_003" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o06gt")
+
+[node name="mAuxiliary(OrbitC)_bOcto_004" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o06gt")
+
+[node name="mAuxiliary(ShoulderMount)_002_mesh01_006" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="mAuxiliary(OrbitCannon)OBJ2" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D" instance=ExtResource("12_o06gt")]
+transform = Transform3D(0.738351, -0.140449, 0.00170493, -0.13167, -0.787574, -0.00323202, 0.000842183, 0.00115301, -2, -0.117906, 0.133904, -0.0159829)
+
+[node name="mAuxiliary(OrbitCannonLauncher)_bOcto" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ2" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_55an2")
+
+[node name="mAuxiliary(OrbitB)_bOcto_003" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ2" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o06gt")
+
+[node name="mAuxiliary(OrbitC)_bOcto_004" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ2" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o06gt")
+
+[node name="mAuxiliary(ShoulderMount)_002_mesh01_006" parent="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ2" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpaceRogueMesh"]
 libraries = {
@@ -304,18 +356,6 @@ parameters/Katana/sprint_end/active = 0.0
 parameters/Katana/sprint_end/internal_active = false
 parameters/Katana/sprint_end/request = 0
 
-[node name="AnimationController" type="Node" parent="SpaceRogueMesh" node_paths=PackedStringArray("anim_tree", "anim_player", "character", "character_mesh", "lookat_camera_modifier", "look_at_smooth_follower", "camera_target_node", "camera_forward_node", "mesh_forward_node")]
-script = ExtResource("10_yed1w")
-anim_tree = NodePath("../AnimationTree")
-anim_player = NodePath("../AnimationPlayer")
-character = NodePath("../..")
-character_mesh = NodePath("../Mesh")
-lookat_camera_modifier = NodePath("../Mesh/GeneralSkeleton/LookCameraDirection")
-look_at_smooth_follower = NodePath("../../CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/SmoothFollower")
-camera_target_node = NodePath("../../CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D")
-camera_forward_node = NodePath("../../CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/LookAtTarget_CamView")
-mesh_forward_node = NodePath("../Mesh/GeneralSkeleton/Mesh/MeshForward")
-
 [node name="CameraRoot" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, 0)
 script = ExtResource("4_ij4rl")
@@ -332,8 +372,9 @@ spring_length = 9.0
 [node name="Camera3D" type="Camera3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D"]
 transform = Transform3D(0.322581, 0, -3.55271e-15, 0, 0.322581, 0, 1.77636e-15, 0, 0.322581, 0, 0, 0)
 
-[node name="QuadPlane" type="MeshInstance3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D"]
+[node name="ShaderQuad" type="MeshInstance3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 0.89194, -0.452155, 0, 0.452155, 0.89194, 0.0454259, -0.92755, -6.07672)
+visible = false
 material_override = SubResource("ShaderMaterial_y6t6d")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_ij4rl")
@@ -354,15 +395,17 @@ character = NodePath("..")
 mesh_root = NodePath("../SpaceRogueMesh/Mesh")
 run_dust_trail = NodePath("../SpaceRogueMesh/Mesh/Particle_RunDustTrail")
 
-[connection signal="jump" from="." to="SpaceRogueMesh/AnimationController" method="_on_jump"]
+[connection signal="jump" from="." to="AnimationController" method="_on_jump"]
 [connection signal="jump" from="." to="MovementController" method="_on_jump"]
 [connection signal="set_movement_direction" from="." to="MovementController" method="_on_set_movement_direction"]
-[connection signal="set_movement_state" from="." to="SpaceRogueMesh/AnimationController" method="_on_set_movement_state"]
+[connection signal="set_movement_state" from="." to="AnimationController" method="_on_set_movement_state"]
 [connection signal="set_movement_state" from="." to="CameraRoot" method="_on_set_movement_state"]
 [connection signal="set_movement_state" from="." to="MovementController" method="_on_set_movement_state"]
-[connection signal="sprint_end" from="." to="SpaceRogueMesh/AnimationController" method="_on_sprint_end"]
+[connection signal="sprint_end" from="." to="AnimationController" method="_on_sprint_end"]
 [connection signal="set_cam_rotation" from="CameraRoot" to="MovementController" method="_on_set_cam_rotation"]
-[connection signal="land" from="MovementController" to="SpaceRogueMesh/AnimationController" method="_on_land"]
+[connection signal="land" from="MovementController" to="AnimationController" method="_on_land"]
 
 [editable path="SpaceRogueMesh"]
+[editable path="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ"]
+[editable path="SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ2"]
 [editable path="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/SmoothFollower"]
