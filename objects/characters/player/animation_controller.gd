@@ -24,6 +24,9 @@ var on_ground_blend_target : float = 1
 
 var lookat_cutoff: float = 0.8 # if greater, deactivate look at
 
+var arm_ik_target: float = 0.0
+var arm_ik_value: float = 0.0
+
 func _ready() -> void:
 	anim_tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 
@@ -38,6 +41,8 @@ func _physics_process(delta: float) -> void:
 	on_ground_blend_target = 1 if character.is_on_floor() else 0
 	on_ground_blend = lerp(on_ground_blend, on_ground_blend_target, 10 * delta)
 	anim_tree["parameters/Katana/on_ground_blend/blend_amount"] = on_ground_blend
+	
+	
 	
 	# Head look at location logic
 	if on_ground_blend_target != 0:
