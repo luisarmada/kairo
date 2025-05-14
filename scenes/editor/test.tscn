@@ -148,7 +148,7 @@ transform = Transform3D(-0.819818, -0.466028, 0.332741, -0.326705, -0.0965557, -
 [node name="BoostFlames" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="3"]
 transform = Transform3D(0.938447, 0.0315503, -0.343979, -0.0201565, 0.999125, 0.0366501, 0.344834, -0.0274608, 0.938262, -0.0367711, 1.10652, 0.0197791)
 
-[node name="BoneAttachment3D" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="7"]
+[node name="BoneAttachment3D" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="9"]
 transform = Transform3D(0.918014, -0.124461, -0.37651, 0.108409, 0.992069, -0.0636193, 0.381442, 0.0175862, 0.924225, -0.0124137, 0.956957, 0.00366582)
 
 [node name="ShaderQuad" parent="PlayerPrefab/CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D" index="0"]
@@ -227,7 +227,7 @@ autoplay = "Female_TwinKatana_Idle_0"
 [editable path="ZMech_v3"]
 [editable path="PlayerPrefab"]
 [editable path="PlayerPrefab/SpaceRogueMesh"]
-[editable path="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ"]
+[editable path="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/leftODM"]
 [editable path="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ2"]
 [editable path="PlayerPrefab/CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/SmoothFollower"]
 [editable path="sci_fi_girl_empty-3"]
