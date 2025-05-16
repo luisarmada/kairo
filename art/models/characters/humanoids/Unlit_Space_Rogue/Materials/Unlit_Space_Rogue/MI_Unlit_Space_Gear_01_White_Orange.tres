@@ -1,0 +1,10 @@
+[gd_resource type = "ShaderMaterial" load_steps=2 format=3 uid="uid://beegykn3qrpe3"]
+
+[ext_resource type="Shader" uid="uid://bj3yfecqovhsf" path="res://Shaders/MI_Unlit_Space_Gear_01_White_Orange.tres" id="2_db7om"]
+[ext_resource type="Texture2D" uid="uid://b34bkq6goiutt" path="res://Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_01_White_Orange.png" id="1_b0vr6"]
+
+[resource]
+resource_name = "MI_Unlit_Space_Gear_01_White_Orange"
+render_priority = 0
+shader = ExtResource("2_db7om")
+shader_parameter/Unlit_color_texture = ExtResource("1_b0vr6")

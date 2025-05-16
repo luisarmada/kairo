@@ -1,0 +1,9 @@
+[gd_resource type = "ShaderMaterial" load_steps=1 format=3 uid="uid://8j808jxisda6"]
+
+[ext_resource type="Shader" uid="uid://oxtlh3ndho4f" path="res://Shaders/MI_FormColor_Blue_Unlit.tres" id="1_bc2m8"]
+
+[resource]
+resource_name = "MI_FormColor_Blue_Unlit"
+render_priority = 0
+shader = ExtResource("1_bc2m8")
+shader_parameter/Color = Vector4(0.000000, 0.142717, 0.666667, 1.000000)

@@ -1,0 +1,376 @@
+[gd_scene load_steps=50 format=3 uid="uid://dnjtmatmwg7w8"]
+
+[ext_resource type="PackedScene" uid="uid://cctff4u50yosx" path="res://objects/characters/humanoids/base_humanoid.tscn" id="1_arer1"]
+[ext_resource type="AnimationLibrary" uid="uid://baj17gaf74inf" path="res://art/models/characters/humanoids/SpaceRogueMesh/animations/TwinKatanaAnimset.glb" id="2_7sas1"]
+[ext_resource type="PackedScene" uid="uid://b5koukpjm3qnw" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Basesuit.glb" id="2_jeoaj"]
+[ext_resource type="Script" uid="uid://cvl1ykic388s2" path="res://objects/characters/humanoids/reavers/base_reaver.gd" id="2_naw8r"]
+[ext_resource type="PackedScene" uid="uid://d0yd2hep67bkv" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Boots.glb" id="3_jeoaj"]
+[ext_resource type="Texture2D" uid="uid://pxvxsktdqf2y" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_Full_16_Hot_Orange.png" id="3_pymyb"]
+[ext_resource type="Texture2D" uid="uid://b34bkq6goiutt" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_01_White_Orange.png" id="3_v0x40"]
+[ext_resource type="Texture2D" uid="uid://cxuxlfqfmq8y7" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_02_Purple_Orange.png" id="4_5oinx"]
+[ext_resource type="PackedScene" uid="uid://bdjild4cb4wld" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Gloves.glb" id="4_ramm2"]
+[ext_resource type="PackedScene" uid="uid://c0pl83occlvc6" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Male/SK_UE5MU_Bodyform_Standalone.glb" id="4_vm162"]
+[ext_resource type="PackedScene" uid="uid://ccdm7ca3pqjs6" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Helmet1.glb" id="5_5jepr"]
+[ext_resource type="Texture2D" uid="uid://c207k1o68f0k4" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_03_Purple_White.png" id="5_j76nf"]
+[ext_resource type="PackedScene" uid="uid://cetcrbqvvg6ag" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Helmet3.glb" id="5_mo1xv"]
+[ext_resource type="Texture2D" uid="uid://dcfck01j8m6xl" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_04_Green_Purple.png" id="6_jfv7q"]
+[ext_resource type="PackedScene" uid="uid://dy6ebqyj3m618" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Backpack.glb" id="7_f02yx"]
+[ext_resource type="Texture2D" uid="uid://c70a0knipa4lt" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_05_Grey_Red.png" id="7_twbnt"]
+[ext_resource type="Texture2D" uid="uid://d0w7isdnxjttu" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_06_Full_Red.png" id="8_4nw10"]
+[ext_resource type="PackedScene" uid="uid://bcfdcopbg4d1w" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Shoulders.glb" id="9_qslw0"]
+[ext_resource type="Texture2D" uid="uid://dajod5ai4x0dp" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_07_Full_Blu.png" id="9_yliqw"]
+[ext_resource type="Texture2D" uid="uid://ct0l3pgbbxqlk" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_08_Grey_Blu.png" id="10_6cfvw"]
+[ext_resource type="Texture2D" uid="uid://c86yp8r8qrq7b" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_09_Army.png" id="11_k1s8a"]
+[ext_resource type="Texture2D" uid="uid://ce61uqifl6pjo" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_10_Navy.png" id="12_u7e1q"]
+[ext_resource type="Texture2D" uid="uid://dly3elqk4l2bs" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_11_Tangerine.png" id="13_tow8j"]
+[ext_resource type="Texture2D" uid="uid://3kjb88rf31do" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_12_White_Red.png" id="14_hdmc0"]
+[ext_resource type="Texture2D" uid="uid://doy84glgeyy5i" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_13_White_Teal.png" id="15_gi7c7"]
+[ext_resource type="Texture2D" uid="uid://lwp3m3sxctie" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_14_White_Blu.png" id="16_vhppi"]
+[ext_resource type="Texture2D" uid="uid://y2a0nx03twej" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_Full_15_Full_Teal.png" id="17_tjcrg"]
+[ext_resource type="Texture2D" uid="uid://b2xi36s7w1vgy" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_Full_17_Hot_Fushia.png" id="19_rjquv"]
+[ext_resource type="Texture2D" uid="uid://c1gtv4o5a7xpn" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_Full_18_Mono.png" id="20_d1ug5"]
+[ext_resource type="Texture2D" uid="uid://dguc40sy56f6y" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_Full_19_Hot_Blu.png" id="21_84v23"]
+[ext_resource type="Script" uid="uid://bpkj04x1c7guy" path="res://scripts/resources/movement_state.gd" id="22_twbnt"]
+[ext_resource type="PackedScene" uid="uid://blphxu5ubnxn4" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Meshes/Space_Rogue/UE5_Female/SK_UE5FU_Space_Helmet2.glb" id="24_5oinx"]
+[ext_resource type="PackedScene" uid="uid://baxgyymvrvjbk" path="res://objects/weapons/base_katana/Base_Katana.tscn" id="24_j76nf"]
+[ext_resource type="PackedScene" uid="uid://da1tb5w03oen5" path="res://objects/weapons/RS-AuxiliaryWeapons/3-Auxiliary(OrbitCannons)/mAuxiliary(OrbitCannon)OBJ.obj" id="25_jfv7q"]
+
+[sub_resource type="Resource" id="Resource_4nw10"]
+script = ExtResource("22_twbnt")
+state = 0
+movement_speed = 0.0
+acceleration = 6.0
+camera_fov = 70.0
+max_camera_pitch = 45
+animation_name = "Idle_110"
+animation_id = 0
+animation_speed = 1.0
+id = 0
+metadata/_custom_type_script = "uid://bpkj04x1c7guy"
+
+[sub_resource type="Resource" id="Resource_twbnt"]
+script = ExtResource("22_twbnt")
+state = 1
+movement_speed = 6.0
+acceleration = 7.0
+camera_fov = 75.0
+max_camera_pitch = 45
+animation_name = "Walk_F_Inplace_163"
+animation_id = 1
+animation_speed = 1.0
+id = 0
+metadata/_custom_type_script = "uid://bpkj04x1c7guy"
+
+[sub_resource type="Resource" id="Resource_yliqw"]
+script = ExtResource("22_twbnt")
+state = 1
+movement_speed = 13.0
+acceleration = 5.0
+camera_fov = 75.0
+max_camera_pitch = 45
+animation_name = "Run_F_Inplace_128"
+animation_id = 2
+animation_speed = 1.0
+id = 0
+metadata/_custom_type_script = "uid://bpkj04x1c7guy"
+
+[sub_resource type="Resource" id="Resource_6cfvw"]
+script = ExtResource("22_twbnt")
+state = 0
+movement_speed = 24.0
+acceleration = 10.0
+camera_fov = 105.0
+max_camera_pitch = 12
+animation_name = "Sprint_Inplace_150"
+animation_id = 3
+animation_speed = 1.2
+id = 0
+metadata/_custom_type_script = "uid://bpkj04x1c7guy"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_twbnt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nw10"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4nw10"]
+animation = &"TwinKatanaAnimset/Female_TwinKatana_Idle_110"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yliqw"]
+animation = &"TwinKatanaAnimset/Female_TwinKatana_Walk_F_Inplace_163"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6cfvw"]
+animation = &"TwinKatanaAnimset/Female_TwinKatana_Run_F_Inplace_128"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k1s8a"]
+animation = &"TwinKatanaAnimset/Female_TwinKatana_Sprint_Inplace_150"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_u7e1q"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_4nw10")
+blend_point_0/pos = 0.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_yliqw")
+blend_point_1/pos = 1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_6cfvw")
+blend_point_2/pos = 2.0
+blend_point_3/node = SubResource("AnimationNodeAnimation_k1s8a")
+blend_point_3/pos = 3.0
+min_space = 0.0
+max_space = 3.0
+snap = 1.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_tow8j"]
+graph_offset = Vector2(-166.08, 21.12)
+nodes/movement/node = SubResource("AnimationNodeBlendSpace1D_u7e1q")
+nodes/movement/position = Vector2(0, 130)
+node_connections = [&"output", 0, &"movement"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_twbnt"]
+input_0/name = "katana"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_twbnt"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_twbnt"]
+graph_offset = Vector2(-280.961, 66.0446)
+nodes/katana_tree/node = SubResource("AnimationNodeBlendTree_tow8j")
+nodes/katana_tree/position = Vector2(-290, 260)
+nodes/output/position = Vector2(350, 250)
+nodes/state_transition/node = SubResource("AnimationNodeTransition_twbnt")
+nodes/state_transition/position = Vector2(170, 240)
+nodes/timescale/node = SubResource("AnimationNodeTimeScale_twbnt")
+nodes/timescale/position = Vector2(-80, 280)
+node_connections = [&"output", 0, &"state_transition", &"state_transition", 0, &"timescale", &"timescale", 0, &"katana_tree"]
+
+[node name="BaseReaver" node_paths=PackedStringArray("female_mesh_root", "master_pose_skeleton", "arm_ik_references") instance=ExtResource("1_arer1")]
+script = ExtResource("2_naw8r")
+female_mesh_root = NodePath("Mesh/Female")
+master_pose_skeleton = NodePath("Mesh/MasterPose/GeneralSkeleton")
+bodysuit_colours = Array[Texture2D]([ExtResource("3_v0x40"), ExtResource("4_5oinx"), ExtResource("5_j76nf"), ExtResource("6_jfv7q"), ExtResource("7_twbnt"), ExtResource("8_4nw10"), ExtResource("9_yliqw"), ExtResource("10_6cfvw"), ExtResource("11_k1s8a"), ExtResource("12_u7e1q"), ExtResource("13_tow8j"), ExtResource("14_hdmc0"), ExtResource("15_gi7c7"), ExtResource("16_vhppi"), ExtResource("17_tjcrg"), ExtResource("3_pymyb"), ExtResource("19_rjquv"), ExtResource("20_d1ug5"), ExtResource("21_84v23")])
+bodysuit_material = 1
+head_type = 1
+arm_ik_references = [NodePath("Mesh/MasterPose/GeneralSkeleton/RightUpperArmModifier"), NodePath("Mesh/MasterPose/GeneralSkeleton/RightLowerArmModifier"), NodePath("Mesh/MasterPose/GeneralSkeleton/LeftUpperArmModifier"), NodePath("Mesh/MasterPose/GeneralSkeleton/LeftLowerArmModifier")]
+arm_ik_weights = Array[float]([0.6, 0.4, 0.5, 0.4])
+state_set = "katana"
+movement_states = Dictionary[String, ExtResource("22_twbnt")]({
+"katana_idle": SubResource("Resource_4nw10"),
+"katana_run": SubResource("Resource_yliqw"),
+"katana_sprint": SubResource("Resource_6cfvw"),
+"katana_walk": SubResource("Resource_twbnt")
+})
+
+[node name="AnimationPlayer" parent="." index="1"]
+root_node = NodePath("../Mesh/MasterPose")
+libraries = {
+&"TwinKatanaAnimset": ExtResource("2_7sas1")
+}
+
+[node name="Mesh" type="Node3D" parent="." index="2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="MasterPose" parent="Mesh" index="0" instance=ExtResource("4_vm162")]
+
+[node name="GeneralSkeleton" parent="Mesh/MasterPose" index="0"]
+bones/2/position = Vector3(-0.0117702, 0.948181, 0.00374897)
+bones/2/rotation = Quaternion(0.0205901, -0.191585, 0.0581695, 0.979534)
+bones/3/rotation = Quaternion(-0.0500081, 0.0202405, -0.0622668, 0.9966)
+bones/6/rotation = Quaternion(0.0409493, 0.0118519, -0.006575, 0.999069)
+bones/7/rotation = Quaternion(0.0211187, 0.0256232, -0.00940873, 0.999404)
+bones/8/rotation = Quaternion(0.00383569, 0.0588577, 0.0178267, 0.9981)
+bones/10/rotation = Quaternion(0.0892534, 0.0776729, -0.0147659, 0.992866)
+bones/11/rotation = Quaternion(0.549589, 0.463387, 0.524728, -0.455943)
+bones/12/rotation = Quaternion(-0.0633052, 0.974494, -0.197075, 0.0866872)
+bones/13/rotation = Quaternion(-0.129548, -0.658671, -0.051717, 0.739388)
+bones/16/rotation = Quaternion(-0.248083, 0.623641, -0.119758, 0.731563)
+bones/18/rotation = Quaternion(0.146137, 0.0786055, -0.00438829, 0.986127)
+bones/19/rotation = Quaternion(0.346531, 0.222546, -0.0224511, 0.91098)
+bones/20/rotation = Quaternion(0.337453, 0.178689, 0.00917191, 0.924182)
+bones/22/rotation = Quaternion(0.211396, 0.107986, -0.00906011, 0.971375)
+bones/23/rotation = Quaternion(0.388512, 0.200882, -0.0128733, 0.899188)
+bones/24/rotation = Quaternion(0.337271, 0.161225, -0.00138832, 0.927498)
+bones/25/rotation = Quaternion(-0.214526, 0.713673, 0.323765, 0.582946)
+bones/26/rotation = Quaternion(-0.012132, -0.00661528, 0.0141731, 0.999804)
+bones/26/scale = Vector3(1.00005, 0.999982, 0.999968)
+bones/27/rotation = Quaternion(0.141561, 0.311342, 0.00216057, 0.939693)
+bones/27/scale = Vector3(1.00002, 1, 0.999981)
+bones/29/rotation = Quaternion(0.239976, 0.13765, 0.0301142, 0.960498)
+bones/30/rotation = Quaternion(0.4365, 0.0225803, 0.014294, 0.899307)
+bones/31/rotation = Quaternion(0.379401, 0.00559127, 0.0263009, 0.924842)
+bones/33/rotation = Quaternion(0.308826, 0.146461, -0.0134813, 0.939678)
+bones/34/rotation = Quaternion(0.336688, 0.120764, 0.0138015, 0.933738)
+bones/35/rotation = Quaternion(0.376568, 0.115111, 0.032871, 0.918621)
+bones/38/rotation = Quaternion(0.487018, -0.522977, -0.5721, -0.402506)
+bones/39/rotation = Quaternion(0.0332341, 0.972478, -0.227203, -0.0395067)
+bones/40/rotation = Quaternion(-0.132377, 0.658034, 0.0526993, 0.739385)
+bones/43/rotation = Quaternion(-0.279193, -0.631686, 0.200285, 0.694917)
+bones/45/rotation = Quaternion(0.226765, -0.145286, -0.0400308, 0.96222)
+bones/46/rotation = Quaternion(0.459583, -0.036672, -0.0281248, 0.886932)
+bones/47/rotation = Quaternion(0.376982, -0.0184109, -0.0370754, 0.925295)
+bones/49/rotation = Quaternion(0.304532, -0.156027, 0.00438917, 0.939626)
+bones/50/rotation = Quaternion(0.331624, -0.133727, -0.0261991, 0.933518)
+bones/51/rotation = Quaternion(0.37148, -0.126712, -0.0456248, 0.918621)
+bones/53/rotation = Quaternion(0.208216, -0.114662, 0.00237637, 0.971336)
+bones/54/rotation = Quaternion(0.381538, -0.214148, 0.000110956, 0.899205)
+bones/55/rotation = Quaternion(0.331343, -0.172838, -0.00965477, 0.927494)
+bones/57/rotation = Quaternion(0.144069, -0.0826607, 0.000402076, 0.986109)
+bones/58/rotation = Quaternion(0.339705, -0.235469, 0.0100727, 0.910524)
+bones/59/rotation = Quaternion(0.330771, -0.189905, -0.0205094, 0.924179)
+bones/60/rotation = Quaternion(-0.217849, -0.716238, -0.334876, 0.572191)
+bones/61/rotation = Quaternion(0.00203247, 0.0118504, 0.0130942, 0.999842)
+bones/61/scale = Vector3(1.00004, 0.999992, 0.999971)
+bones/62/rotation = Quaternion(0.134868, -0.314213, 0.00767258, 0.939693)
+bones/62/scale = Vector3(1.00002, 1, 0.999981)
+bones/65/rotation = Quaternion(-0.0366091, -0.0418845, 0.997741, 0.0376637)
+bones/66/rotation = Quaternion(0.00103363, 0.997441, -0.0713313, -0.00474696)
+bones/67/rotation = Quaternion(-0.0185456, 0.69483, -0.718639, 0.0206017)
+bones/68/rotation = Quaternion(0.00166465, 0.996601, 0.0823548, 0.000781751)
+bones/70/rotation = Quaternion(0.0589519, -0.0162348, 0.722862, 0.688282)
+bones/71/rotation = Quaternion(0.738232, 0.673925, -0.0270739, -0.0102988)
+bones/73/rotation = Quaternion(0.182346, 0.0447136, 0.972328, 0.139027)
+bones/74/rotation = Quaternion(-0.00296787, 0.999061, -0.043139, 0.00270452)
+bones/75/rotation = Quaternion(0.0741462, 0.702262, -0.706682, -0.0439436)
+bones/76/rotation = Quaternion(-1.06144e-05, 1, 0.000541121, -2.49113e-05)
+bones/78/rotation = Quaternion(-0.68828, 0.722863, 0.0162319, 0.0589536)
+bones/79/rotation = Quaternion(0.0103017, -0.0270751, -0.673925, 0.738231)
+bones/82/position = Vector3(0.00772342, 0.128719, -0.0450266)
+bones/82/rotation = Quaternion(0.0279126, 0.0173544, 0.704256, 0.709184)
+bones/83/position = Vector3(-0.025818, 0.136382, -0.262892)
+bones/83/rotation = Quaternion(0.690406, -0.673417, 0.0980235, -0.245438)
+bones/83/scale = Vector3(0.999991, 0.999987, 1)
+bones/85/position = Vector3(-0.283196, 0.901885, -0.101392)
+bones/85/rotation = Quaternion(0.530274, 0.0679281, 0.505298, 0.677399)
+bones/86/position = Vector3(0.287047, -0.246113, 0.389745)
+bones/86/rotation = Quaternion(0.569461, -0.449606, 0.684696, 0.0689945)
+
+[node name="LeftHandKatana" type="BoneAttachment3D" parent="Mesh/MasterPose/GeneralSkeleton" index="0"]
+transform = Transform3D(-0.657057, 0.753496, 0.0228169, 0.0161952, 0.0443699, -0.998884, -0.753667, -0.655954, -0.0413563, 0.363179, 0.915698, 0.156999)
+bone_name = "LeftHand"
+bone_idx = 16
+
+[node name="SM_Katana01" parent="Mesh/MasterPose/GeneralSkeleton/LeftHandKatana" index="0" instance=ExtResource("24_j76nf")]
+transform = Transform3D(-0.489161, 0.196488, -1.18832, 1.13358, -0.3584, -0.525884, -0.407098, -1.23407, -0.0364762, -0.0639685, 0.000464283, 0.0612126)
+
+[node name="RightHandKatana" type="BoneAttachment3D" parent="Mesh/MasterPose/GeneralSkeleton" index="1"]
+transform = Transform3D(-0.911157, -0.409135, 0.0490158, -0.0820157, 0.0634943, -0.994607, 0.403816, -0.910263, -0.0914087, -0.404905, 0.937895, 0.0282487)
+bone_name = "RightHand"
+bone_idx = 43
+
+[node name="SM_Katana01" parent="Mesh/MasterPose/GeneralSkeleton/RightHandKatana" index="0" instance=ExtResource("24_j76nf")]
+transform = Transform3D(-0.437404, -0.246686, 1.19909, -1.15987, -0.323828, -0.489719, 0.39162, -1.23462, -0.11114, 0.0729936, -0.00123184, 0.0659916)
+
+[node name="SkyrigAttachment" type="BoneAttachment3D" parent="Mesh/MasterPose/GeneralSkeleton" index="2"]
+transform = Transform3D(0.919823, -0.121848, -0.372932, 0.106069, 0.992385, -0.0626262, 0.377723, 0.0180487, 0.925743, -0.0117702, 0.948181, 0.00374897)
+bone_name = "Hips"
+bone_idx = 2
+
+[node name="SkyrigLeft" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment" index="0" instance=ExtResource("25_jfv7q")]
+transform = Transform3D(-0.7, -6.33316e-08, 2.03833e-07, 6.11587e-08, -0.699574, -0.0814205, -6.33317e-08, 0.0244296, -2.33158, 0.139529, 0.076183, 0.0110047)
+
+[node name="mAuxiliary(OrbitCannonLauncher)_bOcto" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_twbnt")
+
+[node name="mAuxiliary(OrbitB)_bOcto_003" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4nw10")
+
+[node name="mAuxiliary(OrbitC)_bOcto_004" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4nw10")
+
+[node name="mAuxiliary(ShoulderMount)_002_mesh01_006" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Arm" type="Node3D" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft" index="5"]
+
+[node name="UpperArmPointer" type="Node3D" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft/Arm" index="0"]
+transform = Transform3D(-0.612378, -0.671973, -1.63624, 0.203008, 0.847291, -0.50874, 0.264822, -0.415442, -0.718797, 0.330372, 0.156974, -0.0296389)
+
+[node name="LowerArmPointer" type="Node3D" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft/Arm" index="1"]
+transform = Transform3D(0.903354, 0.169984, 1.03466, -0.167709, 0.985034, -0.0508412, -0.122658, -0.0082742, 0.95049, -3.05887, 0.180301, 0.866539)
+
+[node name="SkyrigRight" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment" index="1" instance=ExtResource("25_jfv7q")]
+transform = Transform3D(0.689358, -0.121596, -8.3736e-05, -0.121524, -0.688939, -0.0812713, 0.00421115, 0.0240185, -2.33158, -0.129002, 0.108747, 0.0188502)
+
+[node name="mAuxiliary(OrbitCannonLauncher)_bOcto" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_twbnt")
+
+[node name="mAuxiliary(OrbitB)_bOcto_003" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4nw10")
+
+[node name="mAuxiliary(OrbitC)_bOcto_004" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4nw10")
+
+[node name="mAuxiliary(ShoulderMount)_002_mesh01_006" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight" index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.3, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="UpperArmPointer" type="Node3D" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight" index="5"]
+transform = Transform3D(1.00038, 0, 0, 0, 0.999868, 0, 0, 0, 1.00285, 0.380997, 0.122776, 0.0448552)
+
+[node name="LowerOuterSection" type="Node3D" parent="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight" index="6"]
+transform = Transform3D(0.999851, 0, 0, 0, 0.999853, 0, 0, 0, 1.00198, -9.41606, 0.399949, 0.710052)
+
+[node name="RightUpperArmModifier" type="LookAtModifier3D" parent="Mesh/MasterPose/GeneralSkeleton" index="3"]
+transform = Transform3D(0.999997, -0.00143738, -0.00194196, 0.00144402, 0.999993, 0.0034158, 0.00193703, -0.0034186, 0.999992, 0.00189588, -5.61078e-05, 0.00362447)
+influence = 0.6
+target_node = NodePath("../SkyrigAttachment/SkyrigRight/UpperArmPointer")
+bone_name = "RightUpperArm"
+bone = 39
+primary_rotation_axis = 0
+use_secondary_rotation = false
+
+[node name="RightLowerArmModifier" type="LookAtModifier3D" parent="Mesh/MasterPose/GeneralSkeleton" index="4"]
+transform = Transform3D(0.999997, -0.00143738, -0.00194196, 0.00144402, 0.999993, 0.0034158, 0.00193703, -0.0034186, 0.999992, 0.00189588, -5.61078e-05, 0.00362447)
+influence = 0.4
+target_node = NodePath("../SkyrigAttachment/SkyrigRight/LowerOuterSection")
+bone_name = "RightLowerArm"
+bone = 40
+forward_axis = 2
+primary_rotation_axis = 2
+
+[node name="LeftUpperArmModifier" type="LookAtModifier3D" parent="Mesh/MasterPose/GeneralSkeleton" index="5"]
+transform = Transform3D(0.999997, -0.00143738, -0.00194196, 0.00144402, 0.999993, 0.0034158, 0.00193703, -0.0034186, 0.999992, 0.00189588, -5.61078e-05, 0.00362447)
+influence = 0.5
+target_node = NodePath("../SkyrigAttachment/SkyrigLeft/Arm/UpperArmPointer")
+bone_name = "LeftUpperArm"
+bone = 12
+primary_rotation_axis = 0
+use_secondary_rotation = false
+
+[node name="LeftLowerArmModifier" type="LookAtModifier3D" parent="Mesh/MasterPose/GeneralSkeleton" index="6"]
+transform = Transform3D(0.999997, -0.00143738, -0.00194196, 0.00144402, 0.999993, 0.0034158, 0.00193703, -0.0034186, 0.999992, 0.00189588, -5.61078e-05, 0.00362447)
+influence = 0.4
+target_node = NodePath("../SkyrigAttachment/SkyrigLeft/Arm/LowerArmPointer")
+bone_name = "LeftLowerArm"
+bone = 13
+forward_axis = 2
+primary_rotation_axis = 2
+
+[node name="Female" type="Node3D" parent="Mesh" index="1"]
+
+[node name="Basesuit" parent="Mesh/Female" index="0" instance=ExtResource("2_jeoaj")]
+
+[node name="Boots" parent="Mesh/Female" index="1" instance=ExtResource("3_jeoaj")]
+
+[node name="Gloves" parent="Mesh/Female" index="2" instance=ExtResource("4_ramm2")]
+
+[node name="Head1" parent="Mesh/Female" index="3" instance=ExtResource("5_5jepr")]
+
+[node name="Head2" parent="Mesh/Female" index="4" instance=ExtResource("24_5oinx")]
+visible = false
+
+[node name="Head3" parent="Mesh/Female" index="5" instance=ExtResource("5_mo1xv")]
+visible = false
+
+[node name="Backpack" parent="Mesh/Female" index="6" instance=ExtResource("7_f02yx")]
+
+[node name="Shoulderpads" parent="Mesh/Female" index="7" instance=ExtResource("9_qslw0")]
+
+[node name="AnimationTree" parent="." index="3"]
+root_node = NodePath("../Mesh/MasterPose")
+tree_root = SubResource("AnimationNodeBlendTree_twbnt")
+parameters/katana_tree/movement/blend_position = 0.0164835
+parameters/state_transition/current_state = "katana"
+parameters/state_transition/transition_request = ""
+parameters/state_transition/current_index = 0
+parameters/timescale/scale = 1.0
+
+[editable path="Mesh/MasterPose"]
+[editable path="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft"]
+[editable path="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight"]

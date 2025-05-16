@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="MovementState" load_steps=2 format=3 uid="uid://cnf3so0jl7jja"]
 
-[ext_resource type="Script" uid="uid://bpkj04x1c7guy" path="res://objects/characters/scripts/movement_state.gd" id="1_mbdqu"]
+[ext_resource type="Script" uid="uid://bpkj04x1c7guy" path="res://scripts/resources/movement_state.gd" id="1_mbdqu"]
 
 [resource]
 script = ExtResource("1_mbdqu")
-state_name = "sprint"
-id = 3
+state = 0
 movement_speed = 24.0
 acceleration = 100.0
 camera_fov = 105.0
-animation_speed = 1.2
 max_camera_pitch = 12
+animation_name = ""
+animation_speed = 1.2
+id = 3
 metadata/_custom_type_script = "uid://bpkj04x1c7guy"

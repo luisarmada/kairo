@@ -1,0 +1,9 @@
+[gd_resource type = "ShaderMaterial" load_steps=1 format=3 uid="uid://c4agdus8aqqd6"]
+
+[ext_resource type="Shader" uid="uid://bkoew0lwsphqi" path="res://Shaders/MI_FormColor_Pink_Unlit.tres" id="1_dwi7j"]
+
+[resource]
+resource_name = "MI_FormColor_Pink_Unlit"
+render_priority = 0
+shader = ExtResource("1_dwi7j")
+shader_parameter/Color = Vector4(0.723055, 0.107055, 0.230223, 1.000000)

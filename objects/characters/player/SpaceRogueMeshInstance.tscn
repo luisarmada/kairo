@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://beobv2epc1svd"]
 
-[ext_resource type="PackedScene" uid="uid://dkqg3f13wmxni" path="res://art/models/characters/space_rogue/SK_UE4FU_Space_Standalone_Helmet3.glb" id="1_c8vx7"]
-[ext_resource type="Texture2D" uid="uid://pxvxsktdqf2y" path="res://objects/characters/player/mesh/textures/T_Unlit_Space_Gear_Full_16_Hot_Orange.png" id="2_8uv2x"]
+[ext_resource type="PackedScene" path="res://art/models/characters/space_rogue/SK_UE4FU_Space_Standalone_Helmet3.glb" id="1_c8vx7"]
+[ext_resource type="Texture2D" uid="uid://pxvxsktdqf2y" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_Full_16_Hot_Orange.png" id="2_8uv2x"]
 [ext_resource type="PackedScene" uid="uid://baxgyymvrvjbk" path="res://objects/weapons/base_katana/Base_Katana.tscn" id="3_5l4vj"]
-[ext_resource type="AnimationLibrary" uid="uid://dvq3hivwwd2da" path="res://objects/characters/humanoid_animations/GrapplingHookAnimset.glb" id="4_qvqbs"]
-[ext_resource type="AnimationLibrary" uid="uid://baj17gaf74inf" path="res://objects/characters/humanoid_animations/TwinKatanaAnimset.glb" id="5_m86tp"]
+[ext_resource type="AnimationLibrary" uid="uid://dvq3hivwwd2da" path="res://art/models/characters/humanoids/SpaceRogueMesh/animations/GrapplingHookAnimset.glb" id="4_qvqbs"]
+[ext_resource type="AnimationLibrary" uid="uid://baj17gaf74inf" path="res://art/models/characters/humanoids/SpaceRogueMesh/animations/TwinKatanaAnimset.glb" id="5_m86tp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8uv2x"]
 albedo_texture = ExtResource("2_8uv2x")

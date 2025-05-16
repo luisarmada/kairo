@@ -1,0 +1,10 @@
+[gd_resource type = "ShaderMaterial" load_steps=2 format=3 uid="uid://bb8h83x36xjpy"]
+
+[ext_resource type="Shader" uid="uid://duox8noxp4o6v" path="res://Shaders/MI_Unlit_Space_Hair.tres" id="2_fxvw0"]
+[ext_resource type="Texture2D" uid="uid://dpk1ejlduwraq" path="res://Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Hair.png" id="1_xeque"]
+
+[resource]
+resource_name = "MI_Unlit_Space_Hair"
+render_priority = 0
+shader = ExtResource("2_fxvw0")
+shader_parameter/Unlit_color_texture = ExtResource("1_xeque")

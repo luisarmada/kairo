@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="MovementState" load_steps=2 format=3 uid="uid://ccnfllqyfurht"]
 
-[ext_resource type="Script" uid="uid://bpkj04x1c7guy" path="res://objects/characters/scripts/movement_state.gd" id="1_onud2"]
+[ext_resource type="Script" uid="uid://bpkj04x1c7guy" path="res://scripts/resources/movement_state.gd" id="1_onud2"]
 
 [resource]
 script = ExtResource("1_onud2")
-state_name = "walk"
-id = 1
+state = 0
 movement_speed = 6.0
 acceleration = 7.0
 camera_fov = 75.0
-animation_speed = 1.0
 max_camera_pitch = 45
+animation_name = ""
+animation_speed = 1.0
+id = 1
 metadata/_custom_type_script = "uid://bpkj04x1c7guy"

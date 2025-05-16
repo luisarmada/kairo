@@ -1,0 +1,25 @@
+[gd_resource type = "ShaderMaterial" load_steps=3 format=3 uid="uid://pt0qkgd5uqlt"]
+
+[ext_resource type="Shader" uid="uid://cbtnom8r8u4gg" path="res://Shaders/MI_Unlit_Space_Skin_Black.tres" id="3_cmy5k"]
+[ext_resource type="Texture2D" uid="uid://bn5jutdieaf63" path="res://Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Skin_Black.png" id="1_cbpfw"]
+[ext_resource type="Texture2D" uid="uid://dk2kisotrxfgj" path="res://Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Rim_Mask.png" id="2_vksb2"]
+
+[resource]
+resource_name = "MI_Unlit_Space_Skin_Black"
+render_priority = 0
+shader = ExtResource("3_cmy5k")
+shader_parameter/Use_Vcol_Green_for_AO = false
+shader_parameter/Use_Color_texture = true
+shader_parameter/Base_texture = ExtResource("1_cbpfw")
+shader_parameter/BaseColor = Vector4(0.729167, 0.729167, 0.729167, 1.000000)
+shader_parameter/Color_tint = Vector4(0.802083, 0.802083, 0.802083, 1.000000)
+shader_parameter/Shadow_side_tint = Vector4(0.526042, 0.526042, 0.526042, 1.000000)
+shader_parameter/Vertex_AO_tint = Vector4(0.658375, 0.502887, 0.473532, 1.000000)
+shader_parameter/Lit_edge_intensity = -0.250000
+shader_parameter/Toon_Terminator_Matcap = ExtResource("2_vksb2")
+shader_parameter/Contrast_control = 0.000000
+shader_parameter/Brightness_control = 2.400000
+shader_parameter/Use_Vcol_Red_for_hair_sway = false
+shader_parameter/Wind_intensity = 0.075000
+shader_parameter/Wind_weight = 0.400000
+shader_parameter/Wind_Orientation = Vector4(0.682292, 0.138590, 0.455200, 1.000000)

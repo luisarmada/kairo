@@ -1,0 +1,9 @@
+[gd_resource type = "ShaderMaterial" load_steps=1 format=3 uid="uid://11cuxjh5rkw2"]
+
+[ext_resource type="Shader" uid="uid://kvvo0dpdhndb" path="res://Shaders/MI_Space_Visor_Green_Add.tres" id="1_2jiu6"]
+
+[resource]
+resource_name = "MI_Space_Visor_Green_Add"
+render_priority = 0
+shader = ExtResource("1_2jiu6")
+shader_parameter/Additive_color = Vector4(0.233218, 0.463542, 0.016482, 1.000000)

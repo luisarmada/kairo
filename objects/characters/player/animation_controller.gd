@@ -105,7 +105,7 @@ func _on_set_movement_state(_movement_state: MovementState) -> void:
 	tween.parallel().tween_property(odm_right, "rotation_degrees", Vector3(2.0 if should_ik_arm else 30.0, odm_right.rotation_degrees.y, odm_right.rotation_degrees.z), 0.25).set_ease(Tween.EASE_OUT)
 	
 	for i in arm_modifiers.keys():
-		tween.parallel().tween_property(get_node(i), "influence", arm_modifiers[i] if should_ik_arm else 0, 0.2).set_ease(Tween.EASE_OUT)
+		tween.parallel().tween_property(get_node(i), "influence", arm_modifiers[i] if should_ik_arm else 0, 0.15).set_ease(Tween.EASE_OUT)
 	
 
 func _on_jump(_jump_state: JumpState):

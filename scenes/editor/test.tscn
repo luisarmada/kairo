@@ -1,17 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://3825cccgrt7g"]
+[gd_scene load_steps=22 format=3 uid="uid://3825cccgrt7g"]
 
 [ext_resource type="Script" uid="uid://dg3me67anhfqh" path="res://objects/particles/SmallExplosion/ParticleDemoHandler.gd" id="1_j3c5n"]
 [ext_resource type="PackedScene" uid="uid://cxtblmouwvmye" path="res://objects/particles/SmallExplosion/SmallExplosionParticle.tscn" id="2_ojupy"]
-[ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/z_mech/PrideMech.tscn" id="4_4l0s3"]
-[ext_resource type="PackedScene" uid="uid://cgvynb2ol8xkd" path="res://objects/characters/mounts/horse/MechaHorse.tscn" id="4_ojupy"]
+[ext_resource type="PackedScene" uid="uid://buowb3w1c1wuu" path="res://objects/characters/titans/PrideMech.tscn" id="4_4l0s3"]
+[ext_resource type="PackedScene" uid="uid://cgvynb2ol8xkd" path="res://objects/characters/mounts/MechaHorse.tscn" id="4_ojupy"]
 [ext_resource type="PackedScene" uid="uid://cmulvmoc07eel" path="res://art/models/environment/cyberpunk_buildings/Cyberpunk_City.fbx" id="5_s06tt"]
 [ext_resource type="ArrayMesh" uid="uid://c6h1amj5p6bnw" path="res://art/models/environment/cyberpunk_buildings/Motel_Building.res" id="6_4l0s3"]
 [ext_resource type="ArrayMesh" uid="uid://bf17c6ry8gbih" path="res://art/models/environment/cyberpunk_buildings/TallNeon_Building.res" id="7_4l0s3"]
 [ext_resource type="ArrayMesh" uid="uid://ciaxnbwjtu0rb" path="res://art/models/environment/cyberpunk_buildings/UglyCar_Car.res" id="8_uyhpa"]
 [ext_resource type="ArrayMesh" uid="uid://enxk71o8xumq" path="res://art/models/environment/cyberpunk_buildings/Transmission_Tower.res" id="9_gkd1c"]
 [ext_resource type="ArrayMesh" uid="uid://d1eqkk112i1ph" path="res://art/models/environment/cyberpunk_buildings/HugeCrane.res" id="10_b2hld"]
-[ext_resource type="PackedScene" uid="uid://cjb0ih2pl00iw" path="res://objects/characters/player/PlayerPrefab.tscn" id="11_j3c5n"]
 [ext_resource type="ArrayMesh" uid="uid://dycyu0moh85bx" path="res://art/models/environment/cyberpunk_buildings/HousingEstate_Building.res" id="12_j3c5n"]
+[ext_resource type="PackedScene" uid="uid://dnjtmatmwg7w8" path="res://objects/characters/humanoids/reavers/base_reaver.tscn" id="13_ojupy"]
+[ext_resource type="PackedScene" uid="uid://cjb0ih2pl00iw" path="res://objects/characters/player/PlayerPrefab.tscn" id="15_oy7tf"]
 [ext_resource type="PackedScene" uid="uid://hee6p1coxfoo" path="res://art/models/characters/humanoids/orange_hair_scifi_girl/testing/new folder/sci_fi_girl_empty-2.glb" id="17_2pv3l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ii8p"]
@@ -69,14 +70,13 @@ transform = Transform3D(110, 0, 0, 0, 110, 0, 0, 0, 110, -22.7821, -2.34274, -59
 visible = false
 
 [node name="LookAtModifier3D" parent="ZMech_v3/ZMech_v2/GeneralSkeleton" index="1"]
-target_node = NodePath("../../../../PlayerPrefab")
 duration = 2.0
 use_angle_limitation = true
 symmetry_limitation = true
-primary_limit_angle = 1.5708
-primary_damp_threshold = 0.5
-secondary_limit_angle = 1.22173
-secondary_damp_threshold = 0.5
+primary_limit_angle = 6.28319
+primary_damp_threshold = 1.0
+secondary_limit_angle = 6.28319
+secondary_damp_threshold = 1.0
 
 [node name="Cyberpunk_City" parent="." instance=ExtResource("5_s06tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 27)
@@ -107,53 +107,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.46604, 0)
 use_collision = true
 size = Vector3(500, 1, 500)
 
-[node name="PlayerPrefab" parent="." instance=ExtResource("11_j3c5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.5921, -1.96604, 50.8913)
-
-[node name="GeneralSkeleton" parent="PlayerPrefab/SpaceRogueMesh/Mesh" index="1"]
-bones/1/position = Vector3(-0.0124137, 0.956957, 0.00366582)
-bones/1/rotation = Quaternion(0.0207354, -0.193539, 0.0594622, 0.979069)
-bones/2/rotation = Quaternion(-0.0492966, 0.0199289, -0.0646105, 0.996493)
-bones/3/rotation = Quaternion(0.0394704, 0.0116917, -0.00528391, 0.999138)
-bones/4/rotation = Quaternion(0.0183939, 0.0260641, -0.00894547, 0.999451)
-bones/5/rotation = Quaternion(0.479488, 0.528881, 0.570197, -0.406513)
-bones/6/rotation = Quaternion(-0.172542, 0.956622, -0.204633, 0.11502)
-bones/7/rotation = Quaternion(-0.132804, -0.653857, -0.0565905, 0.742719)
-bones/8/rotation = Quaternion(-0.247427, 0.625501, -0.116833, 0.73067)
-bones/26/rotation = Quaternion(0.405505, -0.576602, -0.616396, -0.350929)
-bones/27/rotation = Quaternion(0.138765, 0.95752, -0.238173, -0.0846897)
-bones/28/rotation = Quaternion(-0.135952, 0.652785, 0.0580443, 0.74298)
-bones/29/rotation = Quaternion(-0.278617, -0.634679, 0.196094, 0.693615)
-bones/47/rotation = Quaternion(0.00985309, 0.0587784, 0.0170758, 0.998076)
-bones/48/rotation = Quaternion(0.0879777, 0.0798684, -0.0160387, 0.992786)
-bones/49/rotation = Quaternion(0.185327, 0.0424968, 0.97152, 0.141411)
-bones/50/rotation = Quaternion(-0.00299872, 0.999287, -0.0375661, 0.00213581)
-bones/52/rotation = Quaternion(0.0743733, 0.70102, -0.70783, -0.0449116)
-bones/55/rotation = Quaternion(-0.0382529, -0.0414234, 0.997611, 0.0399041)
-bones/58/rotation = Quaternion(-0.0182392, 0.696299, -0.717253, 0.0195718)
-bones/59/rotation = Quaternion(0.0021089, 0.996413, 0.0845958, 0.000604704)
-bones/63/position = Vector3(-0.0265059, 0.137729, -0.265562)
-bones/63/rotation = Quaternion(-0.689698, 0.672288, -0.0990218, 0.250081)
-bones/65/position = Vector3(-0.284609, 0.910256, -0.080498)
-bones/65/rotation = Quaternion(0.535686, 0.0703037, 0.506149, 0.672243)
-bones/66/position = Vector3(0.285889, -0.238994, 0.389761)
-bones/66/rotation = Quaternion(0.570415, -0.44098, 0.689859, 0.0652605)
-
-[node name="LeftHandKatana" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="1"]
-transform = Transform3D(-0.583762, 0.767743, -0.264185, 0.212653, -0.169448, -0.962323, -0.783582, -0.617947, -0.064346, 0.244828, 0.89401, 0.0200588)
-
-[node name="RightHandKatana" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="2"]
-transform = Transform3D(-0.819818, -0.466028, 0.332741, -0.326705, -0.0965557, -0.940181, 0.470278, -0.879486, -0.0730956, -0.284596, 0.910224, -0.0809518)
-
-[node name="BoostFlames" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="3"]
-transform = Transform3D(0.938447, 0.0315503, -0.343979, -0.0201565, 0.999125, 0.0366501, 0.344834, -0.0274608, 0.938262, -0.0367711, 1.10652, 0.0197791)
-
-[node name="BoneAttachment3D" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="9"]
-transform = Transform3D(0.918014, -0.124461, -0.37651, 0.108409, 0.992069, -0.0636193, 0.381442, 0.0175862, 0.924225, -0.0124137, 0.956957, 0.00366582)
-
-[node name="ShaderQuad" parent="PlayerPrefab/CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D" index="0"]
-visible = true
-
 [node name="mecha_horse" parent="." instance=ExtResource("4_ojupy")]
 transform = Transform3D(-0.993782, 0, -0.111347, 0, 1, 0, 0.111347, 0, -0.993782, 8.88109, -2, 31.2727)
 
@@ -168,66 +121,126 @@ mesh = ExtResource("6_4l0s3")
 [node name="sci_fi_girl_empty-3" parent="." instance=ExtResource("17_2pv3l")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -76.5476, -1.9576, 50.791)
 
-[node name="GeneralSkeleton" parent="sci_fi_girl_empty-3/Mesh" index="0"]
-bones/0/position = Vector3(-0.0133288, 1.08203, 0.00411038)
-bones/0/rotation = Quaternion(-0.0430428, -0.197563, 0.0476699, 0.978184)
-bones/1/rotation = Quaternion(-0.0484956, 0.0278196, -0.0605456, 0.996598)
-bones/2/rotation = Quaternion(0.048494, 0.0162937, -0.00761598, 0.998662)
-bones/3/rotation = Quaternion(0.0112918, 0.0240364, -0.00511823, 0.999634)
-bones/4/rotation = Quaternion(0.00298583, 0.0567529, 0.0258521, 0.998049)
-bones/5/rotation = Quaternion(0.0902432, 0.0797449, -0.00418104, 0.992713)
-bones/6/position = Vector3(0, 0.215016, -0.0623511)
-bones/7/rotation = Quaternion(0.554913, 0.457987, 0.518022, -0.462572)
-bones/8/rotation = Quaternion(-0.167799, 0.835444, -0.521004, 0.0493241)
-bones/9/rotation = Quaternion(-0.00614252, -0.71383, 0.00651763, 0.700262)
-bones/10/rotation = Quaternion(-0.177215, 0.503706, -0.00942467, 0.84545)
-bones/11/rotation = Quaternion(-0.108192, 0.711317, 0.435598, 0.540904)
-bones/12/rotation = Quaternion(0.129935, 0.033838, 0.0561487, 0.989353)
-bones/13/rotation = Quaternion(0.323484, 0.0785943, -0.0784169, 0.939698)
-bones/13/scale = Vector3(1.00001, 0.999986, 1)
-bones/14/position = Vector3(-0.0223825, 0.0174, 0.0235504)
-bones/14/rotation = Quaternion(0.673911, -0.306531, 0.521833, 0.423762)
-bones/14/scale = Vector3(1.00058, 1.00003, 1.00061)
-bones/15/rotation = Quaternion(0.270895, 0.0176452, 0.0135791, 0.962351)
-bones/16/rotation = Quaternion(0.529899, -0.0423039, -0.210761, 0.820365)
-bones/17/rotation = Quaternion(0.352449, -0.0537922, -0.158906, 0.920671)
-bones/18/position = Vector3(0.0113642, 0.0403468, -0.00537544)
-bones/18/rotation = Quaternion(0.698373, 0.0979681, -0.110909, 0.700269)
-bones/19/rotation = Quaternion(0.498564, -0.511583, -0.573756, -0.400649)
-bones/20/rotation = Quaternion(0.157738, 0.822854, -0.545885, 0.00631639)
-bones/21/rotation = Quaternion(-0.00693043, 0.713808, -0.0057567, 0.700283)
-bones/22/rotation = Quaternion(-0.21603, -0.460499, 0.0864157, 0.856624)
-bones/23/rotation = Quaternion(-0.116335, -0.710824, -0.431782, 0.542917)
-bones/24/rotation = Quaternion(0.149287, -0.0383614, -0.0818405, 0.984654)
-bones/25/rotation = Quaternion(0.32482, -0.0629372, 0.0866233, 0.939695)
-bones/25/scale = Vector3(1.00001, 0.999989, 1)
-bones/26/position = Vector3(0.0214837, 0.013624, 0.0217716)
-bones/26/rotation = Quaternion(0.641173, 0.269406, -0.561049, 0.448935)
-bones/26/scale = Vector3(1.00057, 1.00009, 1.00056)
-bones/27/rotation = Quaternion(0.25794, -0.0300853, 0.00424027, 0.965683)
-bones/28/rotation = Quaternion(0.532852, -0.00207686, 0.230836, 0.814112)
-bones/29/rotation = Quaternion(0.340536, 0.0155651, 0.165171, 0.925479)
-bones/30/position = Vector3(-0.0116318, 0.0385692, -0.00752436)
-bones/30/rotation = Quaternion(0.700059, -0.130131, 0.0991706, 0.695089)
-bones/31/rotation = Quaternion(0.195337, -0.0472386, 0.976082, 0.0829248)
-bones/32/rotation = Quaternion(0.0247852, 0.999545, -0.0167164, 0.00406504)
-bones/33/rotation = Quaternion(0.0714527, 0.70263, -0.706669, -0.0427117)
-bones/34/rotation = Quaternion(2.7296e-05, 1, -2.77758e-05, 4.81923e-06)
-bones/35/position = Vector3(-0.00276603, 0.081865, 0.00721293)
-bones/35/rotation = Quaternion(0.0105893, 0.744497, -0.667535, 0.00288586)
-bones/36/rotation = Quaternion(-0.0341378, -0.11607, 0.988024, 0.0957689)
-bones/37/rotation = Quaternion(-0.0292677, 0.997496, -0.0643015, -0.00333301)
-bones/38/rotation = Quaternion(-0.0169737, 0.689331, -0.724031, 0.0177203)
-bones/39/rotation = Quaternion(0.00507887, 0.997209, 0.0744822, -0.000285669)
-bones/40/position = Vector3(0.00276687, 0.0794431, 0.00721292)
-
 [node name="AnimationPlayer" parent="sci_fi_girl_empty-3" index="1"]
 autoplay = "Female_TwinKatana_Idle_0"
 
+[node name="PlayerPrefab" parent="." instance=ExtResource("15_oy7tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.2618, -1.96171, 43.6376)
+
+[node name="GeneralSkeleton" parent="PlayerPrefab/SpaceRogueMesh/Mesh" index="1"]
+bones/1/position = Vector3(-0.0124366, 0.957017, 0.00278117)
+bones/1/rotation = Quaternion(0.0202754, -0.19378, 0.0597676, 0.979013)
+bones/2/rotation = Quaternion(-0.0466093, 0.0202896, -0.0626069, 0.996743)
+bones/3/rotation = Quaternion(0.037379, 0.0126801, -0.0082006, 0.999187)
+bones/4/rotation = Quaternion(0.0177812, 0.0263018, -0.0111741, 0.999434)
+bones/5/rotation = Quaternion(0.480997, 0.527694, 0.569625, -0.407073)
+bones/6/rotation = Quaternion(-0.175475, 0.956797, -0.200238, 0.116844)
+bones/7/rotation = Quaternion(-0.124945, -0.664979, -0.0447071, 0.734978)
+bones/8/rotation = Quaternion(-0.248018, 0.626112, -0.117365, 0.729861)
+bones/9/rotation = Quaternion(0.14361, 0.0773201, -0.00428927, 0.9866)
+bones/10/rotation = Quaternion(0.346531, 0.222546, -0.0224513, 0.91098)
+bones/11/rotation = Quaternion(0.337453, 0.178689, 0.0091719, 0.924182)
+bones/12/rotation = Quaternion(0.20885, 0.106835, -0.00898653, 0.972053)
+bones/13/rotation = Quaternion(0.388511, 0.200882, -0.0128734, 0.899188)
+bones/14/rotation = Quaternion(0.33727, 0.161225, -0.00138867, 0.927498)
+bones/15/rotation = Quaternion(0.238619, 0.137531, 0.0304451, 0.960843)
+bones/16/rotation = Quaternion(0.4365, 0.0225805, 0.0142942, 0.899307)
+bones/17/rotation = Quaternion(0.379401, 0.0055908, 0.0263013, 0.924842)
+bones/18/rotation = Quaternion(0.307529, 0.146103, -0.0133107, 0.940161)
+bones/19/rotation = Quaternion(0.336688, 0.120764, 0.0138018, 0.933738)
+bones/20/rotation = Quaternion(0.376569, 0.115112, 0.032871, 0.918621)
+bones/21/rotation = Quaternion(-0.214477, 0.713585, 0.322567, 0.583735)
+bones/22/rotation = Quaternion(-0.0121318, -0.00661539, 0.0141736, 0.999804)
+bones/22/scale = Vector3(1.00005, 0.999982, 0.999968)
+bones/23/rotation = Quaternion(0.141561, 0.311342, 0.0021598, 0.939693)
+bones/23/scale = Vector3(1.00002, 1, 0.999981)
+bones/24/position = Vector3(0.0806309, 0.0995333, 0.0559624)
+bones/24/rotation = Quaternion(0.0390309, -0.213982, 0.40048, 0.890114)
+bones/25/position = Vector3(0.0112332, 0.11224, 0.108366)
+bones/25/rotation = Quaternion(-0.294776, -0.628048, 0.260886, 0.671268)
+bones/26/rotation = Quaternion(0.407171, -0.575642, -0.615794, -0.351634)
+bones/27/rotation = Quaternion(0.142402, 0.957917, -0.235614, -0.0812542)
+bones/28/rotation = Quaternion(-0.128233, 0.663768, 0.0465185, 0.735394)
+bones/29/rotation = Quaternion(-0.277757, -0.635097, 0.199958, 0.692473)
+bones/30/rotation = Quaternion(0.141585, -0.0812913, 0.000391334, 0.986583)
+bones/31/rotation = Quaternion(0.339705, -0.23547, 0.010073, 0.910523)
+bones/32/rotation = Quaternion(0.330772, -0.189905, -0.0205102, 0.924178)
+bones/33/rotation = Quaternion(0.205709, -0.113427, 0.00238988, 0.972015)
+bones/34/rotation = Quaternion(0.381538, -0.214149, 0.000111401, 0.899205)
+bones/35/rotation = Quaternion(0.331344, -0.172838, -0.00965464, 0.927494)
+bones/36/rotation = Quaternion(0.225402, -0.145117, -0.0403206, 0.962553)
+bones/37/rotation = Quaternion(0.459583, -0.0366723, -0.028125, 0.886931)
+bones/38/rotation = Quaternion(0.376983, -0.0184107, -0.0370756, 0.925295)
+bones/39/rotation = Quaternion(0.303245, -0.155624, 0.00426081, 0.940109)
+bones/40/rotation = Quaternion(0.331624, -0.133727, -0.0261993, 0.933518)
+bones/41/rotation = Quaternion(0.37148, -0.126712, -0.0456253, 0.918621)
+bones/42/rotation = Quaternion(-0.21775, -0.716155, -0.333705, 0.573016)
+bones/43/rotation = Quaternion(0.00203285, 0.0118503, 0.0130939, 0.999842)
+bones/43/scale = Vector3(1.00004, 0.999992, 0.999971)
+bones/44/rotation = Quaternion(0.134868, -0.314213, 0.00767299, 0.939692)
+bones/44/scale = Vector3(1.00002, 1, 0.999981)
+bones/45/position = Vector3(-0.0806311, 0.0995341, 0.0559629)
+bones/45/rotation = Quaternion(0.890115, -0.40048, -0.213982, -0.0390311)
+bones/46/position = Vector3(-0.0112332, 0.11224, 0.108366)
+bones/46/rotation = Quaternion(0.671268, -0.260888, -0.628047, 0.294777)
+bones/47/rotation = Quaternion(0.00396404, 0.0595098, 0.0181419, 0.998055)
+bones/48/rotation = Quaternion(0.0930535, 0.0777131, -0.0129824, 0.992539)
+bones/49/rotation = Quaternion(0.185305, 0.0419443, 0.971493, 0.141788)
+bones/50/rotation = Quaternion(-0.00300822, 0.999356, -0.035696, 0.00197473)
+bones/51/position = Vector3(0.00933645, 0.20339, 0.0220307)
+bones/51/rotation = Quaternion(-0.68828, 0.722863, 0.016232, 0.0589537)
+bones/52/rotation = Quaternion(0.0746016, 0.702208, -0.706639, -0.0447252)
+bones/53/rotation = Quaternion(-5.40006e-08, 1, -2.98023e-08, 5.40006e-08)
+bones/54/position = Vector3(-0.0199251, 0.219967, -0.00576437)
+bones/54/rotation = Quaternion(0.0103014, -0.0270749, -0.673926, 0.738231)
+bones/55/rotation = Quaternion(-0.0382298, -0.0414878, 0.997601, 0.0401079)
+bones/56/rotation = Quaternion(0.000988662, 0.997398, -0.07192, -0.00480855)
+bones/57/position = Vector3(-0.00933681, 0.203392, 0.0220308)
+bones/57/rotation = Quaternion(0.0589513, -0.0162335, 0.722862, 0.688282)
+bones/58/rotation = Quaternion(-0.0180979, 0.695123, -0.718389, 0.019829)
+bones/59/rotation = Quaternion(0.0021462, 0.996594, 0.0824277, 0.000834771)
+bones/60/position = Vector3(0.019925, 0.219967, -0.00576445)
+bones/60/rotation = Quaternion(0.738231, 0.673925, -0.0270726, -0.0102997)
+bones/61/rotation = Quaternion(0, 0, 0, 1)
+bones/62/position = Vector3(0.00669451, 0.12807, -0.0454785)
+bones/62/rotation = Quaternion(0.025099, 0.0209515, 0.704125, 0.709323)
+bones/63/position = Vector3(-0.0262397, 0.137643, -0.266283)
+bones/63/rotation = Quaternion(-0.689728, 0.672607, -0.100575, 0.248514)
+bones/63/scale = Vector3(0.999991, 0.999987, 1)
+bones/64/rotation = Quaternion(0, 0, 0, 1)
+bones/65/position = Vector3(-0.292136, 0.914518, -0.0782571)
+bones/65/rotation = Quaternion(0.527209, 0.0734271, 0.499465, 0.683515)
+bones/66/position = Vector3(0.294449, -0.24148, 0.394995)
+bones/66/rotation = Quaternion(0.57849, -0.442449, 0.681838, 0.0684458)
+bones/67/position = Vector3(0, 0, 0)
+bones/67/rotation = Quaternion(-1.49012e-08, 2.98023e-08, 4.44089e-16, 1)
+
+[node name="LeftHandKatana" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="1"]
+transform = Transform3D(-0.436059, 0.890651, -0.128818, 0.134014, -0.0772791, -0.987962, -0.889883, -0.448073, -0.0856617, 0.314684, 0.924423, 0.0664144)
+
+[node name="RightHandKatana" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="2"]
+transform = Transform3D(-0.823273, -0.505934, 0.257393, -0.283303, -0.0267152, -0.958658, 0.491894, -0.862158, -0.121339, -0.338703, 0.930608, -0.0817961)
+
+[node name="BoostFlames" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="3"]
+transform = Transform3D(0.938675, 0.0254295, -0.343864, -0.0152893, 0.999366, 0.0321688, 0.344463, -0.0249386, 0.938468, -0.0368653, 1.10659, 0.018733)
+
+[node name="BoneAttachment3D" parent="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton" index="9"]
+transform = Transform3D(0.917754, -0.124884, -0.377002, 0.109169, 0.992033, -0.0628632, 0.381849, 0.0165362, 0.924077, -0.0124366, 0.957017, 0.00278117)
+
+[node name="ShaderQuad" parent="PlayerPrefab/CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D" index="0"]
+visible = true
+
+[node name="BaseReaver" parent="." instance=ExtResource("13_ojupy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, -2, 44)
+bodysuit_material = 3
+
+[connection signal="update_movement_state" from="BaseReaver" to="BaseReaver/AnimationPlayer" method="_update_movement_state"]
+[connection signal="update_state_set" from="BaseReaver" to="BaseReaver/AnimationPlayer" method="_update_state_set"]
+
 [editable path="ZMech_v3"]
+[editable path="sci_fi_girl_empty-3"]
 [editable path="PlayerPrefab"]
 [editable path="PlayerPrefab/SpaceRogueMesh"]
 [editable path="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/leftODM"]
-[editable path="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/mAuxiliary(OrbitCannon)OBJ2"]
+[editable path="PlayerPrefab/SpaceRogueMesh/Mesh/GeneralSkeleton/BoneAttachment3D/rightODM"]
 [editable path="PlayerPrefab/CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/SmoothFollower"]
-[editable path="sci_fi_girl_empty-3"]
