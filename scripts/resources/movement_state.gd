@@ -1,7 +1,7 @@
 extends Resource
 class_name MovementState
 
-enum State {IDLE, GROUND_MOVE}
+enum State {IDLE, WALK, SPRINT}
 
 @export var state : State
 
@@ -15,6 +15,7 @@ enum State {IDLE, GROUND_MOVE}
 @export var animation_name : String
 @export var animation_id : int
 @export var animation_speed :  float = 1.0
+@export var state_transitions : Dictionary[State, String]
 
 # delete
 @export var id: int

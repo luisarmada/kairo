@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cctff4u50yosx"]
+[gd_scene load_steps=4 format=3 uid="uid://cctff4u50yosx"]
 
 [ext_resource type="Script" uid="uid://bwpipelf18jcb" path="res://objects/characters/humanoids/base_humanoid.gd" id="1_wfmfj"]
-[ext_resource type="Script" uid="uid://cxphl77ee3nbd" path="res://objects/characters/humanoids/base_char_anim_controller.gd" id="2_ir8mn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fibi2"]
 radius = 1.3
 height = 5.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ir8mn"]
-graph_offset = Vector2(-163.2, 105.997)
+graph_offset = Vector2(-144, 79.68)
 
 [node name="BaseHumanoid" type="CharacterBody3D"]
 script = ExtResource("1_wfmfj")
@@ -22,7 +21,3 @@ shape = SubResource("CapsuleShape3D_fibi2")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_ir8mn")
 anim_player = NodePath("../AnimationPlayer")
-script = ExtResource("2_ir8mn")
-
-[connection signal="update_movement_state" from="." to="AnimationTree" method="_update_movement_state"]
-[connection signal="update_state_set" from="." to="AnimationTree" method="_update_state_set"]

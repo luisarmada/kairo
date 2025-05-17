@@ -20,6 +20,11 @@ shader_parameter/normal_threshold = 1.0
 shader_parameter/depth_threshold = 10.0
 shader_parameter/depth_artifact_correction_coef = 2.0
 shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/fog_color = Color(0.42, 0.2814, 0.2814, 1)
+shader_parameter/noise_color = Color(0.4018, 0.49, 0.49, 1)
+shader_parameter/noise_time_fac = 10.0
+shader_parameter/fog_distance = 100.0
+shader_parameter/fog_transition_range = 400.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_13xew"]
 flip_faces = true
@@ -31,52 +36,97 @@ bodysuit_material = 15
 head_type = 3
 
 [node name="GeneralSkeleton" parent="Mesh/MasterPose" index="0"]
-bones/2/position = Vector3(-0.0119659, 0.947665, 0.00373047)
-bones/2/rotation = Quaternion(0.0208017, -0.188255, 0.0586859, 0.980145)
-bones/3/rotation = Quaternion(-0.0499471, 0.0171602, -0.0632626, 0.996599)
-bones/6/rotation = Quaternion(0.0403729, 0.0113257, -0.00529848, 0.999107)
-bones/7/rotation = Quaternion(0.0191915, 0.0249373, -0.00826036, 0.999471)
-bones/8/rotation = Quaternion(0.00869072, 0.0588686, 0.0162559, 0.998096)
-bones/10/rotation = Quaternion(0.0871139, 0.0786017, -0.0158088, 0.992967)
-bones/11/rotation = Quaternion(0.545377, 0.466756, 0.523705, -0.458733)
-bones/12/rotation = Quaternion(-0.0616737, 0.973228, -0.20337, 0.0875421)
-bones/13/rotation = Quaternion(-0.132283, -0.654673, -0.0558199, 0.742152)
-bones/16/rotation = Quaternion(-0.24733, 0.623628, -0.119433, 0.731883)
-bones/38/rotation = Quaternion(0.482717, -0.526329, -0.570758, -0.405212)
-bones/39/rotation = Quaternion(0.0307836, 0.970846, -0.234126, -0.0411705)
-bones/40/rotation = Quaternion(-0.136045, 0.652813, 0.0582685, 0.742921)
-bones/43/rotation = Quaternion(-0.278868, -0.631915, 0.199764, 0.69499)
-bones/65/rotation = Quaternion(-0.0391296, -0.0350374, 0.997858, 0.0390027)
-bones/66/rotation = Quaternion(0.00100976, 0.997154, -0.0752134, -0.00509396)
-bones/67/rotation = Quaternion(-0.0188645, 0.697101, -0.716433, 0.0204638)
-bones/68/rotation = Quaternion(0.00192753, 0.996534, 0.0831607, 0.000472273)
-bones/73/rotation = Quaternion(0.180447, 0.0406467, 0.972667, 0.140379)
-bones/74/rotation = Quaternion(-0.00297732, 0.999122, -0.0417121, 0.00251071)
-bones/75/rotation = Quaternion(0.07406, 0.702366, -0.706523, -0.0449744)
-bones/76/rotation = Quaternion(5.55366e-06, 1, 0.000208038, -9.21026e-07)
-bones/82/position = Vector3(0.00689991, 0.128717, -0.0516393)
-bones/82/rotation = Quaternion(0.0306282, 0.0149747, 0.704295, 0.709088)
-bones/83/position = Vector3(-0.0260793, 0.136345, -0.255177)
-bones/83/rotation = Quaternion(0.690391, -0.673439, 0.0973683, -0.24568)
-bones/85/position = Vector3(-0.281112, 0.900457, -0.100677)
-bones/85/rotation = Quaternion(0.533725, 0.0690162, 0.508476, 0.67218)
-bones/86/position = Vector3(0.285743, -0.241764, 0.391005)
-bones/86/rotation = Quaternion(0.571375, -0.445092, 0.685936, 0.0701102)
+bones/2/position = Vector3(-0.0116819, 0.948461, 0.00360404)
+bones/2/rotation = Quaternion(0.0195915, -0.194137, 0.0602203, 0.978928)
+bones/3/rotation = Quaternion(-0.0497988, 0.0199645, -0.063588, 0.996533)
+bones/6/rotation = Quaternion(0.0404969, 0.012192, -0.00738277, 0.999078)
+bones/7/rotation = Quaternion(0.0214345, 0.0262339, -0.0102527, 0.999373)
+bones/8/rotation = Quaternion(0.0030149, 0.0596276, 0.0183139, 0.998048)
+bones/10/rotation = Quaternion(0.0902727, 0.0785623, -0.0144733, 0.992708)
+bones/11/rotation = Quaternion(0.550935, 0.461922, 0.524074, -0.456557)
+bones/12/rotation = Quaternion(-0.0652078, 0.974658, -0.195302, 0.0874523)
+bones/13/rotation = Quaternion(-0.127985, -0.660717, -0.0492887, 0.738)
+bones/16/rotation = Quaternion(-0.248089, 0.625541, -0.116605, 0.730447)
+bones/18/rotation = Quaternion(0.143609, 0.0773203, -0.0042885, 0.9866)
+bones/19/rotation = Quaternion(0.346532, 0.222545, -0.0224515, 0.91098)
+bones/20/rotation = Quaternion(0.337453, 0.178689, 0.0091719, 0.924182)
+bones/22/rotation = Quaternion(0.20885, 0.106835, -0.008986, 0.972053)
+bones/23/rotation = Quaternion(0.388512, 0.200882, -0.0128736, 0.899188)
+bones/24/rotation = Quaternion(0.337271, 0.161225, -0.00138861, 0.927498)
+bones/25/rotation = Quaternion(-0.214477, 0.713585, 0.322567, 0.583735)
+bones/26/rotation = Quaternion(-0.0121319, -0.00661522, 0.0141733, 0.999804)
+bones/26/scale = Vector3(1.00005, 0.999982, 0.999968)
+bones/27/rotation = Quaternion(0.141561, 0.311342, 0.0021601, 0.939693)
+bones/27/scale = Vector3(1.00002, 1, 0.999981)
+bones/29/rotation = Quaternion(0.238619, 0.137531, 0.0304452, 0.960843)
+bones/30/rotation = Quaternion(0.4365, 0.0225805, 0.014294, 0.899307)
+bones/31/rotation = Quaternion(0.379402, 0.00559086, 0.0263011, 0.924841)
+bones/33/rotation = Quaternion(0.307529, 0.146103, -0.0133103, 0.940161)
+bones/34/rotation = Quaternion(0.336688, 0.120764, 0.0138018, 0.933738)
+bones/35/rotation = Quaternion(0.376569, 0.115112, 0.0328709, 0.918621)
+bones/38/rotation = Quaternion(0.48744, -0.522662, -0.572218, -0.402235)
+bones/39/rotation = Quaternion(0.0355073, 0.972458, -0.226946, -0.0394991)
+bones/40/rotation = Quaternion(-0.131307, 0.659469, 0.051033, 0.738414)
+bones/43/rotation = Quaternion(-0.279147, -0.634513, 0.197552, 0.69314)
+bones/45/rotation = Quaternion(0.225402, -0.145117, -0.0403209, 0.962554)
+bones/46/rotation = Quaternion(0.459583, -0.0366722, -0.028125, 0.886932)
+bones/47/rotation = Quaternion(0.376982, -0.0184107, -0.0370754, 0.925295)
+bones/49/rotation = Quaternion(0.303244, -0.155624, 0.0042606, 0.94011)
+bones/50/rotation = Quaternion(0.331624, -0.133727, -0.0261993, 0.933518)
+bones/51/rotation = Quaternion(0.37148, -0.126712, -0.045625, 0.918621)
+bones/53/rotation = Quaternion(0.205708, -0.113427, 0.00238925, 0.972015)
+bones/54/rotation = Quaternion(0.381538, -0.214149, 0.000111431, 0.899205)
+bones/55/rotation = Quaternion(0.331343, -0.172838, -0.00965437, 0.927494)
+bones/57/rotation = Quaternion(0.141585, -0.0812915, 0.000390858, 0.986583)
+bones/58/rotation = Quaternion(0.339705, -0.235469, 0.010073, 0.910524)
+bones/59/rotation = Quaternion(0.330772, -0.189905, -0.0205097, 0.924178)
+bones/60/rotation = Quaternion(-0.21775, -0.716155, -0.333705, 0.573016)
+bones/61/rotation = Quaternion(0.00203225, 0.0118502, 0.013094, 0.999842)
+bones/61/scale = Vector3(1.00004, 0.999992, 0.999971)
+bones/62/rotation = Quaternion(0.134868, -0.314213, 0.00767306, 0.939692)
+bones/62/scale = Vector3(1.00002, 1, 0.999981)
+bones/65/rotation = Quaternion(-0.0381275, -0.0422912, 0.997521, 0.0413593)
+bones/66/rotation = Quaternion(0.000988525, 0.997398, -0.0719178, -0.00480831)
+bones/67/rotation = Quaternion(-0.0174352, 0.694779, -0.718745, 0.0195783)
+bones/68/rotation = Quaternion(0.00214956, 0.996609, 0.0822479, 0.000853128)
+bones/70/rotation = Quaternion(0.0589524, -0.0162347, 0.722862, 0.688282)
+bones/71/rotation = Quaternion(0.738231, 0.673925, -0.0270737, -0.0102985)
+bones/73/rotation = Quaternion(0.185439, 0.0396357, 0.971396, 0.142938)
+bones/74/rotation = Quaternion(-0.00302953, 0.999439, -0.033295, 0.00176235)
+bones/75/rotation = Quaternion(0.0750271, 0.702642, -0.706153, -0.0448656)
+bones/76/rotation = Quaternion(-5.40006e-08, 1, -2.98023e-08, 5.40006e-08)
+bones/78/rotation = Quaternion(-0.68828, 0.722863, 0.016232, 0.0589537)
+bones/79/rotation = Quaternion(0.0103014, -0.0270749, -0.673926, 0.738231)
+bones/82/position = Vector3(0.00662816, 0.126941, -0.045076)
+bones/82/rotation = Quaternion(0.0251004, 0.0209527, 0.704125, 0.709323)
+bones/83/position = Vector3(-0.0261462, 0.136328, -0.263889)
+bones/83/rotation = Quaternion(0.689725, -0.672607, 0.100556, -0.248532)
+bones/83/scale = Vector3(0.999991, 0.999987, 1)
+bones/85/position = Vector3(-0.2845, 0.902757, -0.102997)
+bones/85/rotation = Quaternion(0.53082, 0.0679208, 0.504097, 0.677866)
+bones/86/position = Vector3(0.290271, -0.244935, 0.391102)
+bones/86/rotation = Quaternion(0.57452, -0.447497, 0.682071, 0.0667194)
 
 [node name="LeftHandKatana" parent="Mesh/MasterPose/GeneralSkeleton" index="0"]
-transform = Transform3D(-0.657923, 0.75273, 0.0231302, 0.0177951, 0.0462445, -0.998771, -0.752875, -0.656703, -0.0438201, 0.363972, 0.91742, 0.158996)
+transform = Transform3D(-0.650641, 0.758901, 0.0271033, 0.0139858, 0.0476605, -0.998766, -0.759257, -0.649459, -0.0416236, 0.363132, 0.916308, 0.157653)
 
 [node name="RightHandKatana" parent="Mesh/MasterPose/GeneralSkeleton" index="1"]
-transform = Transform3D(-0.910592, -0.409831, 0.0534886, -0.0880778, 0.0659763, -0.993927, 0.403813, -0.909772, -0.0961745, -0.404393, 0.937401, 0.0287247)
+transform = Transform3D(-0.910551, -0.410078, 0.0522736, -0.0866489, 0.0656815, -0.994071, 0.404214, -0.909683, -0.095339, -0.404982, 0.938373, 0.0264067)
 
 [node name="SkyrigAttachment" parent="Mesh/MasterPose/GeneralSkeleton" index="2"]
-transform = Transform3D(0.922232, -0.122873, -0.366592, 0.107209, 0.992247, -0.0628731, 0.371475, 0.0186815, 0.928255, -0.0119659, 0.947665, 0.00373047)
+transform = Transform3D(0.917369, -0.12551, -0.377733, 0.110296, 0.991979, -0.0617394, 0.382452, 0.0149754, 0.923854, -0.0116819, 0.948461, 0.00360404)
 
 [node name="Head1" parent="Mesh/Female" index="3"]
 visible = false
 
 [node name="Head3" parent="Mesh/Female" index="5"]
 visible = true
+
+[node name="AnimationTree" parent="." index="3"]
+parameters/katana_tree/in_air_blend/blend_amount = false
+parameters/katana_tree/movement/blend_position = -0.130697
+parameters/katana_tree/timescale/scale = 0
+parameters/state_transition/current_state = 0.0
 
 [node name="CameraRoot" type="Node3D" parent="." index="4"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5, 0)
@@ -96,7 +146,6 @@ transform = Transform3D(0.322581, 0, -3.55271e-15, 0, 0.322581, 0, 1.77636e-15, 
 
 [node name="ShaderQuad" type="MeshInstance3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0.89194, -0.452155, 0, 0.452155, 0.89194, 0.0454259, -0.92755, -6.07672)
-visible = false
 material_override = SubResource("ShaderMaterial_coe8v")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_13xew")
@@ -111,9 +160,13 @@ smoothing = 3.0
 [node name="LookAtTarget_CamView" type="Node3D" parent="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
 
-[connection signal="update_state_set" from="." to="CameraRoot" method="_update_movement_state"]
+[connection signal="update_movement_state" from="." to="CameraRoot" method="_update_movement_state"]
+[connection signal="set_cam_rotation" from="CameraRoot" to="." method="_update_cam_rotation"]
 
 [editable path="Mesh/MasterPose"]
 [editable path="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigLeft"]
 [editable path="Mesh/MasterPose/GeneralSkeleton/SkyrigAttachment/SkyrigRight"]
+[editable path="Mesh/Female/XHead4"]
+[editable path="Mesh/Female/XHead5"]
+[editable path="Mesh/Female/XHead6"]
 [editable path="CameraRoot/CameraYaw/CameraPitch/SpringArm3D/Camera3D/SmoothFollower"]
