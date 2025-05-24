@@ -17,10 +17,15 @@ var current_move_state: MovementState
 @export var jump_state: JumpState
 
 var target_velocity: Vector3
+var input_direction: Vector3
 var movement_direction: Vector3
 var movement_speed: float
 var movement_acceleration: float
-const JUMP_GRAVITY: float = 98
+var fall_gravity: float = 200
+const GRAVITY: float = 200
+
+var move_dir_rotator: float
+var wants_sprint: bool
 
 @onready var anim_tree = $AnimationTree
 var move_blend_tween: Tween
@@ -28,7 +33,7 @@ var move_blend_tween: Tween
 var step_time : float = 1.0 / 14.0
 var timer = 0.0
 
-var sprint_duration: float = 0.0
+var move_time: float = 0.0
 var in_air_blend_current: float = 0.0
 var in_air_blend_target: float = 0.0
 var has_landed_flag: bool = true
@@ -59,7 +64,7 @@ func set_movement_state(state_name: String) -> void:
 	move_blend_tween = create_tween().set_parallel()
 	
 	move_blend_tween.tween_property(anim_tree, "parameters/" + state_set + "_tree/movement/blend_position", float(state.animation_id), 0.3)
-	move_blend_tween.tween_property(anim_tree, "parameters/katana_tree/timescale/scale", state.animation_speed, 0.7)
+	#move_blend_tween.tween_property(anim_tree, "parameters/katana_tree/timescale/scale", state.animation_speed, 0.7)
 	
 	
 func set_state_set(new_set: String):
@@ -69,7 +74,8 @@ func set_state_set(new_set: String):
 func _ready() -> void:
 	anim_tree.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 
-func _physics_process(delta: float) -> void:
+
+func handle_movement(delta: float, wallrun: bool) -> void:
 	if Engine.is_editor_hint():
 		return
 	
@@ -78,11 +84,30 @@ func _physics_process(delta: float) -> void:
 		anim_tree.advance(step_time)
 		timer -= step_time
 	
-	target_velocity.x = movement_speed * movement_direction.normalized().x
-	target_velocity.z = movement_speed * movement_direction.normalized().z
+	if is_input_movement():
+		if not wallrun:
+			movement_direction = input_direction.rotated(Vector3.UP, move_dir_rotator)
+		else:
+			movement_direction = input_direction
+			
+		move_time += delta
+		if wants_sprint:
+			set_movement_state("sprint")
+		else:
+			set_movement_state("walk")
+	else:
+		if move_time > 0.8 and get_last_motion().length_squared() > 0.1 and is_on_floor():
+			anim_tree["parameters/katana_tree/sprint_end/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+		set_movement_state("idle")
+		move_time = 0.0
+	
+	var move_mult = 1.0 if is_on_floor() else 1.8
+	
+	target_velocity.x = movement_speed * move_mult * movement_direction.normalized().x
+	target_velocity.z = movement_speed * move_mult * movement_direction.normalized().z
 	
 	if not is_on_floor():
-		velocity.y -= JUMP_GRAVITY * delta
+		velocity.y -= fall_gravity * delta
 		particle_run_dust_trail.emitting = false
 		has_landed_flag = false
 	else:
@@ -96,18 +121,27 @@ func _physics_process(delta: float) -> void:
 	in_air_blend_current = lerp(in_air_blend_current, in_air_blend_target, 10 * delta)
 	anim_tree["parameters/katana_tree/in_air_blend/blend_amount"] = in_air_blend_current
 	
-	if movement_acceleration == -1:
+	if movement_acceleration == -1 or not is_on_floor():
 		velocity.x = target_velocity.x
 		velocity.z = target_velocity.z
 	else:
 		velocity.x = lerp(velocity.x, target_velocity.x, movement_acceleration * delta)
 		velocity.z = lerp(velocity.z, target_velocity.z, movement_acceleration * delta)
+	
 	move_and_slide()
 	
 	var target_rotation = atan2(movement_direction.x, movement_direction.z) - rotation.y
 	mesh_reference.rotation.y = lerp_angle(mesh_reference.rotation.y, target_rotation, 8 * delta)
+	#mesh_reference.rotation.y = target_rotation
+	
+
+func is_input_movement() -> bool:
+	return abs(input_direction.x) > 0 or abs(input_direction.z) > 0
 
 func jump():
+	if not is_on_floor():
+		return
+	
 	anim_tree["parameters/katana_tree/jump_start/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	await get_tree().create_timer(0.24).timeout
-	velocity.y = 70.0
+	velocity.y = 130.0

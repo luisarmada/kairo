@@ -1,11 +1,11 @@
 shader_type spatial;
-render_mode cull_disabled, unshaded;
+render_mode unshaded;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest;
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_nearest;
 uniform sampler2D NORMAL_TEXTURE : hint_normal_roughness_texture, filter_nearest;
 uniform float threshold1 : hint_range(0.0, 1.0) = 0.56;
-uniform float night_time : hint_range(0.0, 1.0) = 0.0;
+uniform float night_time : hint_range(0.0, 1.0) = 0.0; // variable to play around with
 uniform float shadow_value_threshold : hint_range(0.0, 1.0) = 0.3;
 uniform float dark_value_threshold : hint_range(0.0, 1.0) = 0.17;
 uniform float dark_brightness_scale : hint_range(1.0, 1000.0) = 60.0;
@@ -13,11 +13,6 @@ uniform float normal_threshold : hint_range(0.0, 1.0) = 0.1;
 uniform float depth_threshold : hint_range(0.0, 1.0) = 0.05;
 uniform float depth_artifact_correction_coef : hint_range(0.0, 5.0) = 2.0;
 uniform vec3 outline_color : source_color = vec3(0.0);
-uniform vec3 fog_color : source_color = vec3(0.5, 0.5, 0.5);
-uniform vec3 noise_color : source_color = vec3(0.6, 0.6, 0.6);
-uniform float noise_time_fac : hint_range(0.1, 10.0) = 1.0;
-uniform float fog_distance : hint_range(1.0, 200.0) = 50.0;
-uniform float fog_transition_range : hint_range(0.0, 500.0) = 10.0;
 
 // Sobel matrices for edge detection
 const mat3 sobel_y = mat3(
@@ -53,6 +48,7 @@ vec3 hsv_to_rgb(vec3 c) {
 float get_quantized_value(float value, float night_time_value1, float night_time_value2) {
     float tolerance = 0.001;
     if (value < dark_value_threshold) {
+        // Slightly brighten dark pixels, but cap to avoid over-brightening
         return min(value * dark_brightness_scale, dark_value_threshold * 1.5);
     } else if (value < threshold1 - tolerance) {
         return night_time_value1;
@@ -121,18 +117,6 @@ float edge_value_depth(sampler2D depth_tex, vec2 uv, vec2 pixel_size, mat3 sobel
     return abs(output);
 }
 
-// Noise function for fog
-float hashOld12(vec2 p) {
-    return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453 + (sin(TIME) / noise_time_fac));
-}
-
-// Color mix function
-vec3 color_mix(vec3 a, vec3 b, float f) {
-    f = clamp(abs(f), 0.0, 1.0);
-    float invf = 1.0 - f;
-    return (a * f) + (b * invf);
-}
-
 void vertex() {
     POSITION = vec4(VERTEX.rg, 1.0, 1.0);
 }
@@ -156,19 +140,17 @@ void fragment() {
     // Check if pixel is part of a Sobel outline
     bool is_sobel_outline = normal_edge > normal_threshold || depth_edge > adjusted_depth_threshold;
 
-    vec3 final_color;
-    float final_alpha;
-
     if (is_sobel_outline) {
         // Apply Sobel outline color
-        final_color = outline_color;
-        final_alpha = 1.0;
+        ALBEDO = outline_color;
+        ALPHA = 1.0;
     } else {
         // Interpolate night time parameters
         float night_time_value1 = mix(0.6, 0.45, night_time);
         float night_time_value2 = mix(1.0, 0.45, night_time);
         float night_time_saturation = mix(1.0, 0.6, night_time);
 
+        // Proceed with posterization and quantization boundary lines
         // Convert to HSV
         vec3 hsv = rgb_to_hsv(c_texture.rgb);
         float hue = hsv.x;
@@ -181,7 +163,7 @@ void fragment() {
         // Calculate texel size for 1-pixel offset
         vec2 texel_size = 1.2 / vec2(textureSize(SCREEN_TEXTURE, 0));
 
-        // Sample neighboring pixels
+        // Sample neighboring pixels (left, right, top, bottom)
         float value_left = rgb_to_hsv(texture(SCREEN_TEXTURE, SCREEN_UV - vec2(texel_size.x, 0.0)).rgb).z;
         float value_right = rgb_to_hsv(texture(SCREEN_TEXTURE, SCREEN_UV + vec2(texel_size.x, 0.0)).rgb).z;
         float value_top = rgb_to_hsv(texture(SCREEN_TEXTURE, SCREEN_UV - vec2(0.0, texel_size.y)).rgb).z;
@@ -199,36 +181,21 @@ void fragment() {
                          quantized_value != qvalue_top ||
                          quantized_value != qvalue_bottom;
 
+        // Output color
         if (is_border) {
             // Draw a black line at quantization boundaries
-            final_color = vec3(0.0);
-            final_alpha = 1.0;
+            ALBEDO = vec3(0.0);
+            ALPHA = 1.0;
         } else {
             // Detect shadows based on low Value
             bool is_shadow = value < shadow_value_threshold;
+            // Interpolate shadow opacity based on night_time
             float shadow_alpha = is_shadow ? mix(1.0, 0.0, night_time) : 1.0;
 
-            // Reconstruct the color
-            final_color = hsv_to_rgb(vec3(hue, saturation_adjusted, quantized_value));
-            final_alpha = c_texture.a * shadow_alpha;
+            // Reconstruct the color with original Hue, adjusted Saturation, and quantized Value
+            vec3 new_rgb = hsv_to_rgb(vec3(hue, saturation_adjusted, quantized_value));
+            ALBEDO = new_rgb;
+            ALPHA = c_texture.a * shadow_alpha;
         }
     }
-
-    // Apply radial depth fog with smooth transition
-    vec2 screen_coords = SCREEN_UV * 2.0 - 1.0;
-    float depth = texture(DEPTH_TEXTURE, SCREEN_UV).x;
-    vec3 ndc = vec3(screen_coords, depth);
-    vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
-    view.xyz /= view.w;
-    vec4 world_pos = INV_VIEW_MATRIX * vec4(view.xyz, 1.0);
-    vec3 camera_pos = (INV_VIEW_MATRIX * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
-    float radial_distance = length(world_pos.xyz - camera_pos);
-    float transition_start = max(0.0, fog_distance - fog_transition_range);
-    float transition_end = fog_distance + fog_transition_range;
-    float depth_mask = smoothstep(transition_start, transition_end, radial_distance);
-    vec3 twocolornoise = color_mix(fog_color, noise_color, hashOld12(screen_coords));
-    final_color = color_mix(twocolornoise, final_color, depth_mask);
-
-    ALBEDO = final_color;
-    ALPHA = final_alpha;
 }

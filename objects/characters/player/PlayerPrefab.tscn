@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://pxvxsktdqf2y" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Textures/Unlit_Space_Rogue/T_Unlit_Space_Gear_Full_16_Hot_Orange.png" id="7_pquuc"]
 [ext_resource type="PackedScene" uid="uid://baxgyymvrvjbk" path="res://objects/weapons/base_katana/Base_Katana.tscn" id="8_dc6qm"]
 [ext_resource type="Script" uid="uid://0hi3l0wjm7m7" path="res://objects/characters/player/movement_controller.gd" id="8_fnslv"]
-[ext_resource type="AnimationLibrary" uid="uid://dvq3hivwwd2da" path="res://art/models/characters/humanoids/SpaceRogueMesh/animations/GrapplingHookAnimset.glb" id="8_pquuc"]
-[ext_resource type="AnimationLibrary" uid="uid://baj17gaf74inf" path="res://art/models/characters/humanoids/SpaceRogueMesh/animations/TwinKatanaAnimset.glb" id="9_dc6qm"]
+[ext_resource type="AnimationLibrary" uid="uid://dvq3hivwwd2da" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Animations/GrapplingHookAnimset.glb" id="8_pquuc"]
+[ext_resource type="AnimationLibrary" uid="uid://baj17gaf74inf" path="res://art/models/characters/humanoids/Unlit_Space_Rogue/Animations/TwinKatanaAnimset.glb" id="9_dc6qm"]
 [ext_resource type="Script" uid="uid://d30t3iyu6xate" path="res://objects/characters/player/animation_controller.gd" id="10_yed1w"]
 [ext_resource type="PackedScene" uid="uid://da1tb5w03oen5" path="res://objects/weapons/RS-AuxiliaryWeapons/3-Auxiliary(OrbitCannons)/mAuxiliary(OrbitCannon)OBJ.obj" id="12_o06gt"]
 [ext_resource type="PackedScene" uid="uid://dpxiqi268nw4u" path="res://objects/particles/DustTrail/dust_trail_particle.tscn" id="13_5bhhu"]
@@ -142,11 +142,6 @@ shader_parameter/normal_threshold = 1.0
 shader_parameter/depth_threshold = 10.0
 shader_parameter/depth_artifact_correction_coef = 2.0
 shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/fog_color = Color(0.5, 0.5, 0.5, 1)
-shader_parameter/noise_color = Color(0.6, 0.6, 0.6, 1)
-shader_parameter/noise_time_fac = 1.0
-shader_parameter/fog_distance = 50.0
-shader_parameter/fog_transition_range = 10.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_ij4rl"]
 flip_faces = true
@@ -196,15 +191,15 @@ transform = Transform3D(0.333333, 0, 0, 0, 0.333333, 0, 0, 0, 0.333333, 0, 0, -0
 emitting = false
 
 [node name="GeneralSkeleton" parent="SpaceRogueMesh/Mesh" index="1"]
-bones/1/position = Vector3(-0.0125204, 0.956966, 0.00367086)
-bones/1/rotation = Quaternion(0.0210678, -0.193365, 0.0592423, 0.97911)
-bones/2/rotation = Quaternion(-0.0489353, 0.0199671, -0.0646033, 0.99651)
-bones/3/rotation = Quaternion(0.0388775, 0.0116705, -0.00505217, 0.999163)
-bones/4/rotation = Quaternion(0.0174586, 0.0260353, -0.00888137, 0.999469)
-bones/5/rotation = Quaternion(0.478169, 0.529908, 0.569451, -0.407771)
-bones/6/rotation = Quaternion(-0.171121, 0.956444, -0.206986, 0.114406)
-bones/7/rotation = Quaternion(-0.133508, -0.652842, -0.057665, 0.743402)
-bones/8/rotation = Quaternion(-0.247315, 0.625494, -0.116872, 0.730707)
+bones/1/position = Vector3(-0.0133351, 0.957119, 0.0025314)
+bones/1/rotation = Quaternion(0.0235376, -0.192071, 0.0576036, 0.979406)
+bones/2/rotation = Quaternion(-0.0431093, 0.0209842, -0.0618468, 0.996933)
+bones/3/rotation = Quaternion(0.0313001, 0.0122274, -0.00530712, 0.999421)
+bones/4/rotation = Quaternion(0.0090897, 0.0258618, -0.0100169, 0.999574)
+bones/5/rotation = Quaternion(0.468438, 0.537474, 0.562787, -0.41828)
+bones/6/rotation = Quaternion(-0.158103, 0.955472, -0.223672, 0.109761)
+bones/7/rotation = Quaternion(-0.135611, -0.649766, -0.0609434, 0.745453)
+bones/8/rotation = Quaternion(-0.245853, 0.62638, -0.118475, 0.730184)
 bones/9/rotation = Quaternion(0.14361, 0.0773201, -0.00428927, 0.9866)
 bones/10/rotation = Quaternion(0.346531, 0.222546, -0.0224513, 0.91098)
 bones/11/rotation = Quaternion(0.337453, 0.178689, 0.0091719, 0.924182)
@@ -222,10 +217,10 @@ bones/22/rotation = Quaternion(-0.0121318, -0.00661539, 0.0141736, 0.999804)
 bones/22/scale = Vector3(1.00005, 0.999982, 0.999968)
 bones/23/rotation = Quaternion(0.141561, 0.311342, 0.0021598, 0.939693)
 bones/23/scale = Vector3(1.00002, 1, 0.999981)
-bones/26/rotation = Quaternion(0.404181, -0.577719, -0.615476, -0.352232)
-bones/27/rotation = Quaternion(0.137856, 0.957046, -0.240651, -0.0845326)
-bones/28/rotation = Quaternion(-0.136562, 0.651894, 0.0589857, 0.743576)
-bones/29/rotation = Quaternion(-0.278434, -0.634736, 0.195975, 0.69367)
+bones/26/rotation = Quaternion(0.394817, -0.585845, -0.607808, -0.362594)
+bones/27/rotation = Quaternion(0.132464, 0.953055, -0.260124, -0.0804665)
+bones/28/rotation = Quaternion(-0.137808, 0.650028, 0.0610597, 0.744812)
+bones/29/rotation = Quaternion(-0.275562, -0.63545, 0.199722, 0.693095)
 bones/30/rotation = Quaternion(0.141585, -0.0812913, 0.000391334, 0.986583)
 bones/31/rotation = Quaternion(0.339705, -0.23547, 0.010073, 0.910523)
 bones/32/rotation = Quaternion(0.330772, -0.189905, -0.0205102, 0.924178)
@@ -243,29 +238,29 @@ bones/43/rotation = Quaternion(0.00203285, 0.0118503, 0.0130939, 0.999842)
 bones/43/scale = Vector3(1.00004, 0.999992, 0.999971)
 bones/44/rotation = Quaternion(0.134868, -0.314213, 0.00767299, 0.939692)
 bones/44/scale = Vector3(1.00002, 1, 0.999981)
-bones/47/rotation = Quaternion(0.0114857, 0.0585752, 0.0167801, 0.998076)
-bones/48/rotation = Quaternion(0.0878655, 0.079971, -0.0161526, 0.992786)
-bones/49/rotation = Quaternion(0.18537, 0.0434485, 0.971534, 0.140965)
-bones/50/rotation = Quaternion(-0.00299092, 0.999246, -0.0386583, 0.00222822)
+bones/47/rotation = Quaternion(0.017588, 0.0578147, 0.0156743, 0.998049)
+bones/48/rotation = Quaternion(0.0918324, 0.0791226, -0.0151834, 0.99251)
+bones/49/rotation = Quaternion(0.185691, 0.0505234, 0.971608, 0.137635)
+bones/50/rotation = Quaternion(-0.0029361, 0.998939, -0.0458796, 0.00283219)
 bones/51/rotation = Quaternion(-0.68828, 0.722863, 0.016232, 0.0589537)
-bones/52/rotation = Quaternion(0.0741554, 0.700718, -0.708145, -0.0450003)
+bones/52/rotation = Quaternion(0.072808, 0.699508, -0.709448, -0.0455218)
 bones/53/rotation = Quaternion(-5.40006e-08, 1, -2.98023e-08, 5.40006e-08)
 bones/54/rotation = Quaternion(0.0103014, -0.0270749, -0.673926, 0.738231)
-bones/55/rotation = Quaternion(-0.0382761, -0.0410358, 0.997644, 0.039454)
+bones/55/rotation = Quaternion(-0.0385101, -0.0383478, 0.997881, 0.0357895)
 bones/56/rotation = Quaternion(0.000988662, 0.997398, -0.07192, -0.00480855)
 bones/57/rotation = Quaternion(0.0589513, -0.0162335, 0.722862, 0.688282)
-bones/58/rotation = Quaternion(-0.0184643, 0.696455, -0.717096, 0.0195765)
-bones/59/rotation = Quaternion(0.00210683, 0.996402, 0.0847302, 0.000592234)
+bones/58/rotation = Quaternion(-0.0199719, 0.6966, -0.716912, 0.0196507)
+bones/59/rotation = Quaternion(0.00212669, 0.996495, 0.0836231, 0.000713367)
 bones/60/rotation = Quaternion(0.738231, 0.673925, -0.0270726, -0.0102997)
 bones/62/position = Vector3(0.00669451, 0.12807, -0.0454785)
 bones/62/rotation = Quaternion(0.025099, 0.0209515, 0.704125, 0.709323)
-bones/63/position = Vector3(-0.0265276, 0.137761, -0.265446)
-bones/63/rotation = Quaternion(-0.6897, 0.672288, -0.0990331, 0.25007)
+bones/63/position = Vector3(-0.0264384, 0.137774, -0.26559)
+bones/63/rotation = Quaternion(-0.68972, 0.67238, -0.0995288, 0.249572)
 bones/63/scale = Vector3(0.999991, 0.999987, 1)
-bones/65/position = Vector3(-0.284649, 0.910455, -0.0798866)
-bones/65/rotation = Quaternion(0.53653, 0.0712004, 0.506325, 0.671343)
-bones/66/position = Vector3(0.285372, -0.237818, 0.390421)
-bones/66/rotation = Quaternion(0.569775, -0.439041, 0.691627, 0.0652042)
+bones/65/position = Vector3(-0.288046, 0.913668, -0.0749233)
+bones/65/rotation = Quaternion(0.53962, 0.0792158, 0.505499, 0.668585)
+bones/66/position = Vector3(0.2854, -0.228214, 0.398588)
+bones/66/rotation = Quaternion(0.567761, -0.422812, 0.702991, 0.0684213)
 
 [node name="Mesh" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="0"]
 material_override = SubResource("StandardMaterial3D_dc6qm")
@@ -274,7 +269,7 @@ material_override = SubResource("StandardMaterial3D_dc6qm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 1)
 
 [node name="LeftHandKatana" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="1"]
-transform = Transform3D(-0.438743, 0.889486, -0.127747, 0.155316, -0.0649591, -0.985727, -0.885088, -0.452322, -0.109651, 0.315498, 0.923761, 0.0630483)
+transform = Transform3D(-0.440937, 0.887267, -0.135396, 0.160072, -0.0706959, -0.984571, -0.883149, -0.455807, -0.110854, 0.313803, 0.925929, 0.0653391)
 bone_name = "LeftHand"
 bone_idx = 8
 
@@ -282,7 +277,7 @@ bone_idx = 8
 transform = Transform3D(-0.217475, 0.080003, -1.27918, 1.19142, -0.465673, -0.231679, -0.472474, -1.21109, 0.004581, -0.0652891, 0.020155, 0.0852615)
 
 [node name="RightHandKatana" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="2"]
-transform = Transform3D(-0.8238, -0.504828, 0.25788, -0.293106, -0.0100628, -0.956027, 0.485224, -0.863161, -0.139678, -0.336225, 0.929082, -0.0838415)
+transform = Transform3D(-0.81978, -0.507092, 0.266115, -0.299865, -0.0157987, -0.953851, 0.487895, -0.861747, -0.139108, -0.338857, 0.93226, -0.0800683)
 bone_name = "RightHand"
 bone_idx = 29
 
@@ -290,7 +285,7 @@ bone_idx = 29
 transform = Transform3D(-0.615832, 0.0158507, 1.14477, -1.08552, -0.421198, -0.578128, 0.363854, -1.22977, 0.212764, 0.0491116, 0.028254, 0.0920064)
 
 [node name="BoostFlames" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="3"]
-transform = Transform3D(0.938623, 0.0315597, -0.343498, -0.020653, 0.999161, 0.0353652, 0.344326, -0.0261003, 0.938487, -0.0368264, 1.10653, 0.0199007)
+transform = Transform3D(0.940622, 0.0243177, -0.338584, -0.018756, 0.99963, 0.0196891, 0.338937, -0.0121695, 0.94073, -0.0372568, 1.10664, 0.0196271)
 bone_name = "Spine"
 bone_idx = 2
 
@@ -349,7 +344,7 @@ forward_axis = 2
 primary_rotation_axis = 2
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="SpaceRogueMesh/Mesh/GeneralSkeleton" index="9"]
-transform = Transform3D(0.9182, -0.124157, -0.376156, 0.107862, 0.992093, -0.0641661, 0.381148, 0.0183445, 0.924332, -0.0125204, 0.956966, 0.00367086)
+transform = Transform3D(0.919581, -0.121876, -0.37352, 0.103793, 0.992256, -0.0682337, 0.378944, 0.0239777, 0.925109, -0.0133351, 0.957119, 0.0025314)
 bone_name = "Hips"
 bone_idx = 1
 

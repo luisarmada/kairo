@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://3825cccgrt7g"]
+[gd_scene load_steps=23 format=3 uid="uid://3825cccgrt7g"]
 
 [ext_resource type="Script" uid="uid://dg3me67anhfqh" path="res://objects/particles/SmallExplosion/ParticleDemoHandler.gd" id="1_j3c5n"]
 [ext_resource type="PackedScene" uid="uid://cxtblmouwvmye" path="res://objects/particles/SmallExplosion/SmallExplosionParticle.tscn" id="2_ojupy"]
@@ -13,6 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dycyu0moh85bx" path="res://art/models/environment/cyberpunk_buildings/HousingEstate_Building.res" id="12_j3c5n"]
 [ext_resource type="PackedScene" uid="uid://dnjtmatmwg7w8" path="res://objects/characters/humanoids/reavers/base_reaver.tscn" id="13_ojupy"]
 [ext_resource type="PackedScene" uid="uid://ddcdgw7n1epnq" path="res://objects/characters/humanoids/player/player_reaver.tscn" id="14_hsq10"]
+[ext_resource type="PackedScene" uid="uid://tpekmmddf8df" path="res://art/models/environment/wall_long/scene.gltf" id="16_lqxyx"]
 [ext_resource type="PackedScene" uid="uid://hee6p1coxfoo" path="res://art/models/characters/humanoids/orange_hair_scifi_girl/testing/new folder/sci_fi_girl_empty-2.glb" id="17_2pv3l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ii8p"]
@@ -30,12 +31,8 @@ albedo_color = Color(0.427782, 0.216588, 0.738281, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pfex3"]
 
-[sub_resource type="Environment" id="Environment_m5qaq"]
-background_mode = 1
-background_color = Color(0.174298, 0.390988, 0.753906, 1)
-reflected_light_source = 1
-glow_bloom = 0.18
-glow_blend_mode = 1
+[sub_resource type="Environment" id="Environment_lqxyx"]
+background_color = Color(0, 0, 0.854902, 1)
 
 [node name="Test" type="Node3D"]
 script = ExtResource("1_j3c5n")
@@ -56,9 +53,6 @@ mesh = SubResource("SphereMesh_6cfdx")
 transform = Transform3D(0.729068, -1.86238, 8.14072e-08, -3.57343e-15, -8.74228e-08, -2, 1.86238, 0.729068, -3.18687e-08, -13.9794, 1.36415, 31.6709)
 material_override = SubResource("StandardMaterial3D_sd1ih")
 mesh = SubResource("BoxMesh_pfex3")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_m5qaq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.997408, -0.038847, 0.0605616, -0.0189518, 0.670148, 0.741986, -0.0694092, -0.741211, 0.667674, 0, 2.11829, 6.80211)
@@ -128,11 +122,48 @@ autoplay = "Female_TwinKatana_Idle_0"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, -1.96563, 44)
 head_type = 4
 
-[node name="PlayerReaver" parent="." instance=ExtResource("14_hsq10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.6117, -1.95512, 39.2886)
-
 [node name="ZMech_v2" parent="." instance=ExtResource("4_4l0s3")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -72.7369, -2.49441, -150.591)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lqxyx")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -392.188, -2.70782, -773.495)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 408.573, -2.70782, -774.047)
+
+[node name="Sketchfab_Scene5" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -392.188, -2.70782, 806.748)
+
+[node name="Sketchfab_Scene6" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 408.831, -2.70782, 806.748)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(-8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, -771, -2.708, 433.378)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(-8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, -771, -2.708, -367.331)
+
+[node name="Sketchfab_Scene7" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(-8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, 779.446, -2.708, 433.378)
+
+[node name="Sketchfab_Scene8" parent="." instance=ExtResource("16_lqxyx")]
+transform = Transform3D(-8.74228e-07, 0, 20, 0, 20, 0, -20, 0, -8.74228e-07, 779.446, -2.708, -367.331)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999999, 0, -0.00141372, 0, 1, 0, 0.00141372, 0, 0.999999, -117.782, 35.7888, 98.8508)
+use_collision = true
+size = Vector3(50, 80, 80)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999999, 0, -0.00141372, 0, 1, 0, 0.00141372, 0, 0.999999, -25.9356, 35.7888, 168.833)
+use_collision = true
+size = Vector3(50, 80, 80)
+
+[node name="PlayerReaver" parent="." instance=ExtResource("14_hsq10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, -2, 35)
 
 [connection signal="update_movement_state" from="BaseReaver" to="BaseReaver/AnimationPlayer" method="_update_movement_state"]
 [connection signal="update_state_set" from="BaseReaver" to="BaseReaver/AnimationPlayer" method="_update_state_set"]

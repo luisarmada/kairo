@@ -1,0 +1,24 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://c6qw7j0ki0e4n"]
+
+[ext_resource type="Material" uid="uid://m80rmki4fbox" path="res://art/sky/examples/night_sky.tres" id="1_8y2f0"]
+
+[sub_resource type="Sky" id="Sky_ieg05"]
+sky_material = ExtResource("1_8y2f0")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_ieg05")
+ambient_light_source = 2
+ambient_light_color = Color(0.45098, 0.333333, 0.309804, 1)
+ambient_light_energy = 0.5
+tonemap_mode = 2
+tonemap_exposure = 0.88
+tonemap_white = 3.0
+glow_intensity = 0.0
+glow_bloom = 0.2
+fog_sky_affect = 0.025
+fog_depth_begin = 0.0
+fog_depth_end = 612.8
+volumetric_fog_density = 0.0198
+volumetric_fog_emission = Color(0.425571, 0.425571, 0.425571, 1)
+volumetric_fog_sky_affect = 0.0
